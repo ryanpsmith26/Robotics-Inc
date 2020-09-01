@@ -26,9 +26,10 @@ router.get('/:id', async (req, res, next) => {
 // POST /api/robots
 router.post('/', async (req, res, next) => {
 	try {
-		console.log('req.body in express-------->', req.body);
 		await Robot.create(req.body);
-		res.end();
+		const newRobotId = await Robot.max('id');
+		const newRobot = await Robot.findByPk(newRobotId);
+		res.json(newRobot);
 	} catch (error) {
 		next(error);
 	}

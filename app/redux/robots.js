@@ -49,8 +49,8 @@ export const fetchRobot = (robotId) => async (dispatch) => {
 
 export const addRobotToDb = (newRobot) => async (dispatch) => {
 	try {
-		await axios.post('/api/robots', newRobot);
-		const action = addedRobot(newRobot);
+		const { data: newRobotFromDb } = await axios.post('/api/robots', newRobot);
+		const action = addedRobot(newRobotFromDb);
 		dispatch(action);
 	} catch (error) {
 		console.error(error);

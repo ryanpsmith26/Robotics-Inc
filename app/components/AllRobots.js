@@ -12,6 +12,7 @@ export class AllRobots extends React.Component {
 
 	render() {
 		const { robots, newRobot } = this.props;
+		console.log('newRobot from AllRobots state---->', newRobot);
 		console.log('this.props from AllRobots----->', this.props);
 		return (
 			<React.Fragment>
