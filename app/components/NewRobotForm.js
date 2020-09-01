@@ -6,9 +6,9 @@ class NewRobotForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			fuelType: '',
-			imageUrl: ''
+			name: ''
+			// fuelType: '',
+			// imageUrl: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -26,14 +26,14 @@ class NewRobotForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.addRobot({
-			name: e.target.name.value,
-			fuelType: e.target.fuelType.value,
-			imageUrl: e.target.imageUrl.value
+			name: e.target.name.value
+			// fuelType: e.target.fuelType.value,
+			// imageUrl: e.target.imageUrl.value
 		});
 		this.setState({
-			name: '',
-			fuelType: '',
-			imageUrl: ''
+			name: ''
+			// fuelType: '',
+			// imageUrl: ''
 		});
 	}
 
@@ -45,7 +45,7 @@ class NewRobotForm extends Component {
 				<label>Name: </label>
 				<input type="text" placeholder="Enter Name" name="name" value={name} onChange={this.handleChange} />
 				<br />
-				<label>Fuel Type: </label>
+				{/* <label>Fuel Type: </label>
 				<input
 					type="text"
 					placeholder="electric, gas, diesel"
@@ -62,7 +62,7 @@ class NewRobotForm extends Component {
 					value={imageUrl}
 					onChange={this.handleChange}
 				/>
-				<br />
+				<br /> */}
 				<button type="submit">Add Robot</button>
 			</form>
 		);
