@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import RobotCard from './RobotCard';
 import { fetchRobots } from '../redux/robots';
 
 export class AllRobots extends React.Component {
@@ -19,20 +20,7 @@ export class AllRobots extends React.Component {
 					{/* <button /> */}
 				</div>
 				{/* check if robots is empty on state */}
-				{robots.length ? (
-					<div className="AllCards">
-						{robots.map((robot) => (
-							<div key={robot.id}>
-								<Link to={`/robots/${robot.id}`}>
-									<h2>{robot.name}</h2>
-								</Link>
-								<img src={robot.imageUrl} />
-							</div>
-						))}
-					</div>
-				) : (
-					<p>There are no robots registered in the database!</p>
-				)}
+				{robots.length ? <RobotCard robots={robots} /> : <p>There are no robots registered in the database!</p>}
 			</React.Fragment>
 		);
 	}

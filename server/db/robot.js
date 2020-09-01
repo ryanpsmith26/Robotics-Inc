@@ -26,7 +26,8 @@ const Robot = db.define('Robot', {
 	},
 	imageUrl: {
 		type: Sequelize.TEXT,
-		defaultValue: 'https://i.pinimg.com/originals/f0/b2/b2/f0b2b2473d5788813bed81d182e6047a.jpg'
+		defaultValue:
+			'https://cdn.imgbin.com/0/19/2/imgbin-robot-cartoon-android-robot-gray-and-purple-robot-illustration-D14ZGq4nQQjhsGY5gHzRYbx0X.jpg'
 	}
 });
 
