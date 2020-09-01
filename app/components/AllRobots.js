@@ -19,16 +19,21 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					{/* <button /> */}
 				</div>
-				<div className="AllCards">
-					{robots.map((robot) => (
-						<div key={robot.id}>
-							<h2>{robot.name}</h2>
-							<img src={robot.imageUrl} />
-							<p>{robot.fuelType}</p>
-							<p>{robot.fuelLevel}</p>
-						</div>
-					))}
-				</div>
+				{/* check if robots is empty on state (none in db), may refactor! */}
+				{robots.length ? (
+					<div className="AllCards">
+						{robots.map((robot) => (
+							<div key={robot.id}>
+								<h2>{robot.name}</h2>
+								<img src={robot.imageUrl} />
+								<p>{robot.fuelType}</p>
+								<p>{robot.fuelLevel}</p>
+							</div>
+						))}
+					</div>
+				) : (
+					<p>There are no robots registered in the database!</p>
+				)}
 			</React.Fragment>
 		);
 	}

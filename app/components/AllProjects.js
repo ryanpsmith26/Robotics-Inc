@@ -19,15 +19,19 @@ export class AllProjects extends React.Component {
 					<h1>All Projects</h1>
 					{/* <button /> */}
 				</div>
-				<div className="AllCards">
-					{projects.map((project) => (
-						<div key={project.id}>
-							<h2>{project.title}</h2>
-							<p>Deadline: {project.deadline}</p>
-							<p>Priority: {project.priority}</p>
-						</div>
-					))}
-				</div>
+				{projects.length ? (
+					<div className="AllCards">
+						{projects.map((project) => (
+							<div key={project.id}>
+								<h2>{project.title}</h2>
+								<p>Deadline: {project.deadline}</p>
+								<p>Priority: {project.priority}</p>
+							</div>
+						))}
+					</div>
+				) : (
+					<p>There are no projects registered in the database.</p>
+				)}
 			</React.Fragment>
 		);
 	}
