@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// May refactor into independent reducers
+
 // ACTION TYPES =========================================
 
 const GET_ALL_ROBOTS = 'GET_ALL_ROBOTS';
@@ -55,7 +57,7 @@ const initialState = {
 	}
 };
 
-// SUBREDUCER ===========================================
+// ROBOTS SUBREDUCER ===========================================
 
 export default function robotsReducer(state = initialState, action) {
 	switch (action.type) {

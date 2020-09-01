@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { fetchProjects } from '../redux/projects';
 
-// Notice that we're exporting the AllProjects component twice. The named export
-// (below) is not connected to Redux, while the default export (at the very
-// bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllProjects extends React.Component {
 	componentDidMount() {
 		this.props.fetchProjects();
@@ -24,7 +23,9 @@ export class AllProjects extends React.Component {
 					<div className="AllCards">
 						{projects.map((project) => (
 							<div key={project.id}>
-								<h2>{project.title}</h2>
+								<Link to={`/projects/${project.id}`}>
+									<h2>{project.title}</h2>
+								</Link>
 								<p>Deadline: {project.deadline}</p>
 								<p>Priority: {project.priority}</p>
 							</div>
