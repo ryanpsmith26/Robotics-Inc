@@ -9,19 +9,25 @@ const robots = [
 		name: 'Jeff'
 	},
 	{
-		name: 'Henry'
+		name: 'Henry',
+		fuelType: 'diesel'
 	}
 ];
+
+const projects = [ { title: 'My Very First Project', priority: 8 } ];
 
 const seed = async () => {
 	try {
 		await db.sync({ force: true });
 
-		await Promise.all(
-			robots.map((robot) => {
+		await Promise.all([
+			...robots.map((robot) => {
 				return Robot.create(robot);
+			}),
+			...projects.map((project) => {
+				return Project.create(project);
 			})
-		);
+		]);
 	} catch (err) {
 		console.log(red(err));
 	}

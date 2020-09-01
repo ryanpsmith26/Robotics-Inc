@@ -27,11 +27,11 @@ The requirements below are broken into separate **tiers**, which model the way w
   - [x] fuelLevel - can be a decimal value between 0 and 100 (defaults to 100)
   - [x] imageUrl - with a default value
 - Write a `projects` model with the following information:
-  - [ ] title - not empty or null
-  - [ ] deadline - a date
-  - [ ] priority - an integer between 1 and 10
-  - [ ] completed - boolean value, defaults to false
-  - [ ] description - extremely large text
+  - [x] title - not empty or null
+  - [x] deadline - a date
+  - [x] priority - an integer between 1 and 10
+  - [x] completed - boolean value, defaults to false
+  - [x] description - extremely large text
 - [ ] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
 
 #### Seed
