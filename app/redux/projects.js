@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
 const GET_PROJECT = 'GET_PROJECT';
+const ADD_PROJECT = 'ADD_PROJECT';
 
 // ACTION CREATORS ======================================
 
@@ -17,6 +18,11 @@ const gotAllProjects = (projects) => ({
 const gotProject = (project) => ({
 	type: GET_PROJECT,
 	project
+});
+
+const addedProject = (newProject) => ({
+	type: ADD_PROJECT,
+	newProject
 });
 
 // THUNK CREATORS =======================================
@@ -41,20 +47,32 @@ export const fetchProject = (projectId) => async (dispatch) => {
 	}
 };
 
+export const addProjectToDb = (newProject) => async (dispatch) => {
+	try {
+		const { data: newProjectFromDb } = await axios.post('/api/projects', newProject);
+		const action = addedProject(newProjectFromDb);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 // INITIAL STATE ========================================
 
 // projects: {
-//  allProjects: [],
-//    project: {
-//      Robots: []
-//    }
+//   allProjects: [],
+//   project: {
+//     Robots: []
+//   },
+//   newProject: ''
 // }
 
 const initialState = {
 	allProjects: [],
 	project: {
 		Robots: []
-	}
+	},
+	newProject: ''
 };
 
 // PROJECTS SUBREDUCER ===========================================
@@ -70,6 +88,11 @@ export default function projectsReducer(state = initialState, action) {
 			return {
 				...state,
 				project: action.project
+			};
+		case ADD_PROJECT:
+			return {
+				...state,
+				newProject: action.newProject
 			};
 		default:
 			return state;

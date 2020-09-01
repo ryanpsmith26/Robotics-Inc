@@ -23,4 +23,16 @@ router.get('/:id', async (req, res, next) => {
 	}
 });
 
+// POST /api/projects
+router.post('/', async (req, res, next) => {
+	try {
+		await Project.create(req.body);
+		const newProjectId = await Project.max('id');
+		const newProject = await Project.findByPk(newProjectId);
+		res.json(newProject);
+	} catch (error) {
+		next(error);
+	}
+});
+
 module.exports = router;

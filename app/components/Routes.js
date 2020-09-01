@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import AllRobots from './AllRobots';
 import NewRobotForm from './NewRobotForm';
+import NewProjectForm from './NewProjectForm';
 import SingleRobot from './SingleRobot';
 
 import AllProjects from './AllProjects';
@@ -19,6 +20,7 @@ const Routes = () => {
 				</nav>
 				<main>
 					<Route path="/robots/forms/add" component={NewRobotForm} />
+					<Route path="/projects/forms/add" component={NewProjectForm} />
 					<Switch>
 						<Route exact path="/robots/:id" component={SingleRobot} />
 						<Route path="/robots" component={AllRobots} />
