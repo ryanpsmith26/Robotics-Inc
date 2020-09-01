@@ -6,7 +6,9 @@ class NewRobotForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: ''
+			name: '',
+			fuelType: '',
+			imageUrl: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -21,23 +23,46 @@ class NewRobotForm extends Component {
 		});
 	}
 
-	async handleSubmit(e) {
+	handleSubmit(e) {
 		e.preventDefault();
 		this.props.addRobot({
-			name: e.target.name.value
+			name: e.target.name.value,
+			fuelType: e.target.fuelType.value,
+			imageUrl: e.target.imageUrl.value
 		});
 		this.setState({
-			name: ''
+			name: '',
+			fuelType: '',
+			imageUrl: ''
 		});
 	}
 
 	render() {
-		const { name } = this.state;
-		console.log(this.props);
+		const { name, fuelType, fuelLevel, imageUrl } = this.state;
+		console.log(this.state);
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<label>Robot Name</label>
-				<input type="text" name="name" value={name} onChange={this.handleChange} />
+				<label>Name: </label>
+				<input type="text" placeholder="Enter Name" name="name" value={name} onChange={this.handleChange} />
+				<br />
+				<label>Fuel Type: </label>
+				<input
+					type="text"
+					placeholder="electric, gas, diesel"
+					name="fuelType"
+					value={fuelType}
+					onChange={this.handleChange}
+				/>
+				<br />
+				<label>Avatar Image: </label>
+				<input
+					type="text"
+					placeholder="Enter URL to image"
+					name="imageUrl"
+					value={imageUrl}
+					onChange={this.handleChange}
+				/>
+				<br />
 				<button type="submit">Add Robot</button>
 			</form>
 		);
