@@ -19,7 +19,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 #### Backend
 
 - [x] Write a route to serve up all robots
-- [ ] Write a route to serve up all projects
+- [x] Write a route to serve up all projects
 
 - Write a `robots` model with the following information:
   - [x] name - not empty or null
@@ -32,7 +32,7 @@ The requirements below are broken into separate **tiers**, which model the way w
   - [x] priority - an integer between 1 and 10
   - [x] completed - boolean value, defaults to false
   - [x] description - extremely large text
-- [ ] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
+- [x] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
 
 #### Seed
 - [x] Running the seed file creates projects and robots for demonstration purposes
