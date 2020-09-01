@@ -43,6 +43,10 @@ const seed = async () => {
 				return Project.create(project);
 			})
 		]);
+		const robotsFromDb = await Robot.findAll();
+		await robotsFromDb[0].addProject(1);
+		await robotsFromDb[0].addProject(2);
+		await robotsFromDb[2].addProject(2);
 	} catch (err) {
 		console.log(red(err));
 	}

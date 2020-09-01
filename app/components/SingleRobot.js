@@ -14,7 +14,6 @@ export class SingleRobot extends React.Component {
 	}
 
 	render() {
-		// console.log(this.props);
 		const { robot } = this.props;
 		return (
 			<React.Fragment>
@@ -22,6 +21,20 @@ export class SingleRobot extends React.Component {
 				<h1>{robot.name}</h1>
 				<p>{robot.fuelType}</p>
 				<p>{robot.fuelLevel}</p>
+				<h2>Projects assigned to {robot.name}</h2>
+				{/* check if projects is empty on state for single robot */}
+				{robot.Projects.length ? (
+					robot.Projects.map((project) => (
+						<div key={project.id}>
+							<h3>Title: {project.title}</h3>
+							<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
+							<p>Deadline: {project.deadline}</p>
+							<p>Priority: {project.priority}</p>
+						</div>
+					))
+				) : (
+					<p>There are no projects currently assigned to this robot.</p>
+				)}
 			</React.Fragment>
 		);
 	}

@@ -42,13 +42,17 @@ export const fetchRobot = (robotId) => async (dispatch) => {
 // INITIAL STATE ========================================
 
 // robots: {
-//  allRobots: [],
-//  robot: {}
+//   allRobots: [],
+//   robot: {
+//     Projects: []
+//   }
 // }
 
 const initialState = {
 	allRobots: [],
-	robot: {}
+	robot: {
+		Projects: []
+	}
 };
 
 // SUBREDUCER ===========================================
