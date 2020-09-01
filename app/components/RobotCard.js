@@ -8,7 +8,7 @@ const RobotCard = (props) => {
 			{robots.map((robot) => (
 				<div key={robot.id}>
 					<div className="Card">
-						<div className="CardImgDiv">
+						<div className="CardFeaturedDiv">
 							<img src={robot.imageUrl} className="CardImg" />
 						</div>
 						<div className="CardContent">

@@ -82,12 +82,17 @@ img {
 	margin: 2em;
 	padding: 1.25em;
 	background-color: #c9c9c9;
-	max-width: 300px;
+	max-width: 400px;
 }
 
-.CardImgDiv {
+.CardFeaturedDiv {
 	width: 33%;
 	height: 100%;
+}
+
+.CardFeaturedDiv h2 {
+	background-color: #fafafa;
+	padding: 1em;
 }
 
 .CardImg {

@@ -11,13 +11,11 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		// console.log(this.props);
 		const { robots } = this.props;
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
 					<h1>All Robots</h1>
-					{/* <button /> */}
 				</div>
 				{/* check if robots is empty on state */}
 				{robots.length ? <RobotCard robots={robots} /> : <p>There are no robots registered in the database!</p>}
