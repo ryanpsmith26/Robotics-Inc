@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import RobotCard from './RobotCard';
-import NewRobotForm from './NewRobotForm';
 import { fetchRobots } from '../redux/robots';
 
 export class AllRobots extends React.Component {
@@ -12,14 +11,16 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		const { robots } = this.props;
+		const { robots, newRobot } = this.props;
+		console.log('this.props from AllRobots----->', this.props);
 		return (
 			<React.Fragment>
-				{/* <NewRobotForm /> */}
 				<div className="MainHeader">
 					<h1>All Robots</h1>
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
+				{/* add newRobot submission from state if exists */}
+				{newRobot.name && <RobotCard robots={[ newRobot ]} />}
 				{/* check if robots is empty on state */}
 				{robots.length ? <RobotCard robots={robots} /> : <p>There are no robots registered in the database!</p>}
 			</React.Fragment>
@@ -28,7 +29,8 @@ export class AllRobots extends React.Component {
 }
 
 const mapState = (state) => ({
-	robots: state.robots.allRobots
+	robots: state.robots.allRobots,
+	newRobot: state.robots.newRobot
 });
 
 const mapDispatch = (dispatch) => ({

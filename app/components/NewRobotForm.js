@@ -39,7 +39,6 @@ class NewRobotForm extends Component {
 
 	render() {
 		const { name, fuelType, fuelLevel, imageUrl } = this.state;
-		console.log(this.state);
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>Name: </label>
