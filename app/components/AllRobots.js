@@ -15,9 +15,10 @@ export class AllRobots extends React.Component {
 		const { robots } = this.props;
 		return (
 			<React.Fragment>
-				<NewRobotForm />
+				{/* <NewRobotForm /> */}
 				<div className="MainHeader">
 					<h1>All Robots</h1>
+					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
 				{/* check if robots is empty on state */}
 				{robots.length ? <RobotCard robots={robots} /> : <p>There are no robots registered in the database!</p>}

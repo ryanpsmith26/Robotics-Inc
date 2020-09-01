@@ -64,6 +64,26 @@ main {
 	margin: 0 auto;
 }
 
+.MainHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.MainHeader a {
+	color: #333333;
+	background-color: #5ed4ff;
+	padding: 1em;
+	border-radius: 5px;
+	font-weight: 900;
+}
+
+.MainHeader a:hover,
+.MainHeader a:focus {
+	background-color: #00baff;
+}
+
 /* TEMP */
 img {
 	width: 50px;
@@ -107,6 +127,7 @@ img {
 	text-decoration: underline;
 }
 
+/* repeating here with .MainHeader a */
 .Card a {
 	color: #333333;
 }
