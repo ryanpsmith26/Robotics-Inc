@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+import Home from './Home';
 import AllRobots from './AllRobots';
 import NewRobotForm from './NewRobotForm';
 import NewProjectForm from './NewProjectForm';
@@ -19,6 +20,7 @@ const Routes = () => {
 					<Link to="/projects">Projects</Link>
 				</nav>
 				<main>
+					<Route exact path="/" component={Home} />
 					<Route path="/robots/forms/add" component={NewRobotForm} />
 					<Route path="/projects/forms/add" component={NewProjectForm} />
 					<Switch>
