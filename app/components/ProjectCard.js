@@ -13,6 +13,7 @@ const ProjectCard = (props) => {
 						</div>
 						<div className="CardContent">
 							<Link to={`/projects/${project.id}`}>
+								<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
 								<p>Deadline: {project.deadline}</p>
 								<p>Priority: {project.priority}</p>
 							</Link>
@@ -25,17 +26,3 @@ const ProjectCard = (props) => {
 };
 
 export default ProjectCard;
-
-// (
-//     <div className="AllCards">
-//         {projects.map((project) => (
-//             <div key={project.id}>
-//                 <Link to={`/projects/${project.id}`}>
-//                     <h2>{project.title}</h2>
-//                 </Link>
-//                 <p>Deadline: {project.deadline}</p>
-//                 <p>Priority: {project.priority}</p>
-//             </div>
-//         ))}
-//     </div>
-// )

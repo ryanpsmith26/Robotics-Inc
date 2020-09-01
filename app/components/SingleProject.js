@@ -17,8 +17,7 @@ export class SingleProject extends React.Component {
 	}
 
 	render() {
-		// May refactor later to modularize and render a new sub-component
-		// May refactor conditional for readability
+		// Refactor later to render ProjectTitle component
 		const { project } = this.props;
 		return (
 			<React.Fragment>
@@ -38,7 +37,6 @@ export class SingleProject extends React.Component {
 							<Link to={`/robots/${robot.id}`}>
 								<h3>{robot.name}</h3>
 							</Link>
-							{console.log('robot obj inside map---->', robot)}
 							{/* <p>{} Projects</p> */}
 							<p>FuelType: {robot.fuelType}</p>
 							<p>Fuel Level: {robot.fuelLevel}%</p>

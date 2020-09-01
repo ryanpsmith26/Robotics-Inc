@@ -32,7 +32,6 @@ nav {
 	margin-bottom: 1em;
 }
 
-/* add underline for active! */
 .NavList {
 	width: 100%;
 	display: flex;
@@ -40,6 +39,7 @@ nav {
 	font-size: 2rem;
 }
 
+/* add underline for active! */
 .NavList a {
 	color: #fafafa;
 }

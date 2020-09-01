@@ -28,16 +28,12 @@ export class AllProjects extends React.Component {
 	}
 }
 
-const mapState = (state) => {
-	return {
-		projects: state.projects.allProjects
-	};
-};
+const mapState = (state) => ({
+	projects: state.projects.allProjects
+});
 
-const mapDispatch = (dispatch) => {
-	return {
-		fetchProjects: () => dispatch(fetchProjects())
-	};
-};
+const mapDispatch = (dispatch) => ({
+	fetchProjects: () => dispatch(fetchProjects())
+});
 
 export default connect(mapState, mapDispatch)(AllProjects);

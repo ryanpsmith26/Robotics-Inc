@@ -23,4 +23,15 @@ router.get('/:id', async (req, res, next) => {
 	}
 });
 
+// POST /api/robots
+router.post('/', async (req, res, next) => {
+	try {
+		console.log('req.body in express-------->', req.body);
+		await Robot.create(req.body);
+		res.end();
+	} catch (error) {
+		next(error);
+	}
+});
+
 module.exports = router;

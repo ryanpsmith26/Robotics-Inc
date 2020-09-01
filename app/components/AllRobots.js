@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import RobotCard from './RobotCard';
+import NewRobotForm from './NewRobotForm';
 import { fetchRobots } from '../redux/robots';
 
 export class AllRobots extends React.Component {
@@ -14,6 +15,7 @@ export class AllRobots extends React.Component {
 		const { robots } = this.props;
 		return (
 			<React.Fragment>
+				<NewRobotForm />
 				<div className="MainHeader">
 					<h1>All Robots</h1>
 				</div>
@@ -24,16 +26,12 @@ export class AllRobots extends React.Component {
 	}
 }
 
-const mapState = (state) => {
-	return {
-		robots: state.robots.allRobots
-	};
-};
+const mapState = (state) => ({
+	robots: state.robots.allRobots
+});
 
-const mapDispatch = (dispatch) => {
-	return {
-		fetchRobots: () => dispatch(fetchRobots())
-	};
-};
+const mapDispatch = (dispatch) => ({
+	fetchRobots: () => dispatch(fetchRobots())
+});
 
 export default connect(mapState, mapDispatch)(AllRobots);

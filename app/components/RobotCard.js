@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const RobotCard = (props) => {
 	const { robots } = props;
+
 	return (
 		<div className="Cards">
 			{robots.map((robot) => (

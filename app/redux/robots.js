@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const GET_ALL_ROBOTS = 'GET_ALL_ROBOTS';
 const GET_ROBOT = 'GET_ROBOT';
+const ADD_ROBOT = 'ADD_ROBOT';
 
 // ACTION CREATORS ======================================
 
@@ -17,6 +18,11 @@ const gotAllRobots = (robots) => ({
 const gotRobot = (robot) => ({
 	type: GET_ROBOT,
 	robot
+});
+
+const addedRobot = (newRobot) => ({
+	type: ADD_ROBOT,
+	newRobot
 });
 
 // THUNK CREATORS =======================================
@@ -41,20 +47,32 @@ export const fetchRobot = (robotId) => async (dispatch) => {
 	}
 };
 
+export const addRobotToDb = (newRobot) => async (dispatch) => {
+	try {
+		await axios.post('/api/robots', newRobot);
+		const action = addedRobot(newRobot);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 // INITIAL STATE ========================================
 
 // robots: {
 //   allRobots: [],
 //   robot: {
 //     Projects: []
-//   }
+//   },
+//	 newRobot: {}
 // }
 
 const initialState = {
 	allRobots: [],
 	robot: {
 		Projects: []
-	}
+	},
+	newRobot: {}
 };
 
 // ROBOTS SUBREDUCER ===========================================
@@ -70,6 +88,11 @@ export default function robotsReducer(state = initialState, action) {
 			return {
 				...state,
 				robot: action.robot
+			};
+		case ADD_ROBOT:
+			return {
+				...state,
+				newRobot: action.newRobot
 			};
 		default:
 			return state;
