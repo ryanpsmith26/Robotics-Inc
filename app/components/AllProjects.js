@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import ProjectCard from './ProjectCard';
+import ProjectCard from './ProjectCards';
 import { fetchProjects } from '../redux/projects';
 
 export class AllProjects extends React.Component {
