@@ -16,6 +16,10 @@ body {
 	width: 100vw;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* NAVIGATION ========================================= */
 
 nav {
@@ -35,8 +39,7 @@ nav {
 	font-size: 2rem;
 }
 
-a {
-	text-decoration: none;
+.NavList a {
 	color: #fafafa;
 }
 

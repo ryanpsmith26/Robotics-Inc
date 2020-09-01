@@ -11,4 +11,14 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+// GET /api/robots/:id
+router.get('/:id', async (req, res, next) => {
+	try {
+		const robot = await Robot.findByPk(req.params.id);
+		res.json(robot);
+	} catch (error) {
+		next(error);
+	}
+});
+
 module.exports = router;

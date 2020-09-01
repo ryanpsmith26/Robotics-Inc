@@ -3,12 +3,18 @@ import axios from 'axios';
 // ACTION TYPES =========================================
 
 const GET_ALL_ROBOTS = 'GET_ALL_ROBOTS';
+const GET_ROBOT = 'GET_ROBOT';
 
 // ACTION CREATORS ======================================
 
 const gotAllRobots = (robots) => ({
 	type: GET_ALL_ROBOTS,
 	robots
+});
+
+const gotRobot = (robot) => ({
+	type: GET_ROBOT,
+	robot
 });
 
 // THUNK CREATORS =======================================
@@ -18,19 +24,31 @@ export const fetchRobots = () => async (dispatch) => {
 		const { data: robots } = await axios.get('/api/robots');
 		const action = gotAllRobots(robots);
 		dispatch(action);
-	} catch (err) {
-		console.error(err);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const fetchRobot = (robotId) => async (dispatch) => {
+	try {
+		const { data: robot } = await axios.get(`/api/robots/${robotId}`);
+		const action = gotRobot(robot);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
 	}
 };
 
 // INITIAL STATE ========================================
 
 // robots: {
-//  allRobots: []
+//  allRobots: [],
+//  robot: {}
 // }
 
 const initialState = {
-	allRobots: []
+	allRobots: [],
+	robot: {}
 };
 
 // SUBREDUCER ===========================================
@@ -41,6 +59,11 @@ export default function robotsReducer(state = initialState, action) {
 			return {
 				...state,
 				allRobots: action.robots
+			};
+		case GET_ROBOT:
+			return {
+				...state,
+				robot: action.robot
 			};
 		default:
 			return state;

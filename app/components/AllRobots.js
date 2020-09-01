@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { fetchRobots } from '../redux/robots';
 
-// Notice that we're exporting the AllRobots component twice. The named export
-// (below) is not connected to Redux, while the default export (at the very
-// bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllRobots extends React.Component {
 	componentDidMount() {
 		this.props.fetchRobots();
@@ -19,15 +18,15 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					{/* <button /> */}
 				</div>
-				{/* check if robots is empty on state (none in db), may refactor! */}
+				{/* check if robots is empty on state */}
 				{robots.length ? (
 					<div className="AllCards">
 						{robots.map((robot) => (
 							<div key={robot.id}>
-								<h2>{robot.name}</h2>
+								<Link to={`/robots/${robot.id}`}>
+									<h2>{robot.name}</h2>
+								</Link>
 								<img src={robot.imageUrl} />
-								<p>{robot.fuelType}</p>
-								<p>{robot.fuelLevel}</p>
 							</div>
 						))}
 					</div>

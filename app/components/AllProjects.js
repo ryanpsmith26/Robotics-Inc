@@ -19,6 +19,7 @@ export class AllProjects extends React.Component {
 					<h1>All Projects</h1>
 					{/* <button /> */}
 				</div>
+				{/* check if projects is empty on state */}
 				{projects.length ? (
 					<div className="AllCards">
 						{projects.map((project) => (
