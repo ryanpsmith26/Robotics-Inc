@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import ProjectCard from './ProjectCards';
 import { fetchRobot } from '../redux/robots';
@@ -16,7 +15,6 @@ export class SingleRobot extends React.Component {
 	}
 
 	render() {
-		// Refactor later to render RobotTitle Component
 		const { robot } = this.props;
 		return (
 			<React.Fragment>

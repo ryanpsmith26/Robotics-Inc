@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
+import RobotCards from './RobotCards';
 import { fetchProject } from '../redux/projects';
-// import { fetchRobots } from '../redux/robots';
 
 export class SingleProject extends React.Component {
 	constructor(props) {
@@ -13,11 +12,9 @@ export class SingleProject extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchProject(this.id);
-		// this.props.fetchRobots();
 	}
 
 	render() {
-		// Refactor later to render ProjectTitle component
 		const { project } = this.props;
 		return (
 			<React.Fragment>
@@ -31,17 +28,7 @@ export class SingleProject extends React.Component {
 				<h2>Robots assigned to this project</h2>
 				{/* check if robots is empty on state for any project */}
 				{project.Robots.length ? (
-					project.Robots.map((robot) => (
-						<div key={robot.id}>
-							<img src={robot.imageUrl} />
-							<Link to={`/robots/${robot.id}`}>
-								<h3>{robot.name}</h3>
-							</Link>
-							{/* <p>{} Projects</p> */}
-							<p>FuelType: {robot.fuelType}</p>
-							<p>Fuel Level: {robot.fuelLevel}%</p>
-						</div>
-					))
+					<RobotCards robots={project.Robots} />
 				) : (
 					<p>There are no robots currently assigned to this project</p>
 				)}
@@ -53,14 +40,12 @@ export class SingleProject extends React.Component {
 const mapState = (state) => {
 	return {
 		project: state.projects.project
-		// robots: state.robots.allRobots
 	};
 };
 
 const mapDispatch = (dispatch) => {
 	return {
 		fetchProject: (id) => dispatch(fetchProject(id))
-		// fetchRobots: () => dispatch(fetchRobots())
 	};
 };
 
