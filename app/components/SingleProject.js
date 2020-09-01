@@ -23,7 +23,8 @@ export class SingleProject extends React.Component {
 					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
 					<p>Deadline: {project.deadline}</p>
 					<p>Priority: {project.priority}</p>
-					<p>Description: {project.description}</p>
+					<h3>Description: </h3>
+					<p>{project.description}</p>
 				</div>
 				<h2>Robots assigned to this project</h2>
 				{/* check if robots is empty on state for any project */}
