@@ -13,8 +13,6 @@ const gotAllRobots = (robots) => ({
 
 // THUNK CREATORS =======================================
 
-export const setRobots = () => {};
-
 export const fetchRobots = () => async (dispatch) => {
 	try {
 		const { data: robots } = await axios.get('/api/robots');

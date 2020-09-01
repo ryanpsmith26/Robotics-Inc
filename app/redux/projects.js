@@ -13,8 +13,6 @@ const gotAllProjects = (projects) => ({
 
 // THUNK CREATORS =======================================
 
-export const setProjects = () => {};
-
 export const fetchProjects = () => async (dispatch) => {
 	try {
 		const { data: projects } = await axios.get('/api/projects');
