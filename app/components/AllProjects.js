@@ -23,8 +23,8 @@ export class AllProjects extends React.Component {
 					{projects.map((project) => (
 						<div key={project.id}>
 							<h2>{project.title}</h2>
-							<p>{project.deadline}</p>
-							<p>{project.priority}</p>
+							<p>Deadline: {project.deadline}</p>
+							<p>Priority: {project.priority}</p>
 						</div>
 					))}
 				</div>

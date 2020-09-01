@@ -14,7 +14,22 @@ const robots = [
 	}
 ];
 
-const projects = [ { title: 'My Very First Project', priority: 8 } ];
+const projects = [
+	{
+		title: 'My Very First Project',
+		deadline: new Date(2020, 9, 31),
+		priority: 8,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	},
+	{
+		title: 'Spot Learns A Trick!',
+		deadline: new Date(2020, 11, 25),
+		priority: 10,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	}
+];
 
 const seed = async () => {
 	try {
