@@ -16,6 +16,8 @@ body {
 	width: 100vw;
 }
 
+/* NAVIGATION ========================================= */
+
 nav {
 	align-items: center;
 	background-color: #333333;
@@ -24,6 +26,30 @@ nav {
 	height: 80px;
 	padding: 10px;
 }
+
+/* add underline for active! */
+.NavList {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	font-size: 2rem;
+}
+
+a {
+	text-decoration: none;
+	color: #fafafa;
+}
+
+a:hover,
+a:focus {
+	color: #c2c2c2;
+}
+
+ul {
+	list-style: none;
+}
+
+/* MAIN =============================================== */
 
 main {
 	align-items: center;
