@@ -85,12 +85,31 @@ main {
 }
 
 /* TEMP */
-img {
+/* img {
 	width: 50px;
+} */
+
+/* FEATURED ROBOT ===================================== */
+
+.FeaturedRobotDiv {
+	display: flex;
+	justify-content: flex-start;
+	width: 80%;
 }
 
-/* CARDS ============================================== */
+.FeaturedRobotImage {
+	width: 50%;
+	object-fit: cover;
+	max-height: 200px;
+}
 
+.FeaturedRobotContent {
+	align-self: center;
+	margin-left: 2em;
+}
+/* FEATURED PROJECT =================================== */
+
+/* CARDS ============================================== */
 .Cards {
 	display: flex;
 	flex-direction: column;

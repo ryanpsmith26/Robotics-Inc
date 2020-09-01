@@ -18,10 +18,14 @@ export class SingleRobot extends React.Component {
 		const { robot } = this.props;
 		return (
 			<React.Fragment>
-				<img src={robot.imageUrl} />
-				<h1>{robot.name}</h1>
-				<p>Fuel Type: {robot.fuelType}</p>
-				<p>Fuel Level: {robot.fuelLevel}%</p>
+				<div className="FeaturedRobotDiv">
+					<img className="FeaturedRobotImage" src={robot.imageUrl} />
+					<div className="FeaturedRobotContent">
+						<h1>{robot.name}</h1>
+						<p>Fuel Type: {robot.fuelType}</p>
+						<p>Fuel Level: {robot.fuelLevel}%</p>
+					</div>
+				</div>
 				<h2>Projects assigned to {robot.name}</h2>
 				{/* check if projects is empty on state for single robot */}
 				{robot.Projects.length ? (
