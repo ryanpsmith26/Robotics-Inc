@@ -12,14 +12,24 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
+		const { robots } = this.props;
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
 					<h1>All Robots</h1>
-					<button />
+					{/* <button /> */}
 				</div>
-				<div className="AllCards" />
+				<div className="AllCards">
+					{robots.map((robot) => (
+						<div key={robot.id}>
+							<h2>{robot.name}</h2>
+							<img src={robot.imageUrl} />
+							<p>{robot.fuelType}</p>
+							<p>{robot.fuelLevel}</p>
+						</div>
+					))}
+				</div>
 			</React.Fragment>
 		);
 	}
