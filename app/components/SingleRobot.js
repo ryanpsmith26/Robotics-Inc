@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchRobot } from '../redux/robots';
 
@@ -14,6 +15,8 @@ export class SingleRobot extends React.Component {
 	}
 
 	render() {
+		// May refactor later to modularize and render a new sub-component
+		// May refactor conditional for readability
 		const { robot } = this.props;
 		return (
 			<React.Fragment>
@@ -26,7 +29,9 @@ export class SingleRobot extends React.Component {
 				{robot.Projects.length ? (
 					robot.Projects.map((project) => (
 						<div key={project.id}>
-							<h3>Title: {project.title}</h3>
+							<Link to={`/projects/${project.id}`}>
+								<h3>Title: {project.title}</h3>
+							</Link>
 							<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
 							<p>Deadline: {project.deadline}</p>
 							<p>Priority: {project.priority}</p>
