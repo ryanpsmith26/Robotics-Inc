@@ -26,7 +26,7 @@ const Robot = db.define('Robot', {
 	},
 	imageUrl: {
 		type: Sequelize.TEXT,
-		defaultValue: 'https://roboticsandautomationnews.com/wp-content/uploads/2020/06/boston-dynamics-spot-2.jpg'
+		defaultValue: 'https://i.pinimg.com/originals/f0/b2/b2/f0b2b2473d5788813bed81d182e6047a.jpg'
 	}
 });
 

@@ -23,7 +23,7 @@ export class SingleProject extends React.Component {
 		return (
 			<React.Fragment>
 				<div>
-					<h3>Title: {project.title}</h3>
+					<h2>{project.title}</h2>
 					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
 					<p>Deadline: {project.deadline}</p>
 					<p>Priority: {project.priority}</p>
@@ -40,8 +40,8 @@ export class SingleProject extends React.Component {
 							</Link>
 							{console.log('robot obj inside map---->', robot)}
 							{/* <p>{} Projects</p> */}
-							<p>{robot.fuelType}</p>
-							<p>{robot.fuelLevel}</p>
+							<p>FuelType: {robot.fuelType}</p>
+							<p>Fuel Level: {robot.fuelLevel}%</p>
 						</div>
 					))
 				) : (

@@ -29,6 +29,7 @@ nav {
 	display: flex;
 	height: 80px;
 	padding: 10px;
+	margin-bottom: 1em;
 }
 
 /* add underline for active! */
@@ -59,6 +60,8 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	width: 90%;
+	margin: 0 auto;
 }
 
 /* TEMP */

@@ -3,7 +3,8 @@ const { db, Project, Robot } = require('./server/db');
 
 const robots = [
 	{
-		name: 'Spot'
+		name: 'Spot',
+		imageUrl: 'https://roboticsandautomationnews.com/wp-content/uploads/2020/06/boston-dynamics-spot-2.jpg'
 	},
 	{
 		name: 'Jeff'
