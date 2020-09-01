@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import AllRobots from './AllRobots';
 
 const Routes = () => {
 	return (
@@ -12,6 +13,7 @@ const Routes = () => {
             awaiting assignments!
           </h1>
           <p>This seems like a nice place to get started with some Routes!</p> */}
+					<AllRobots />
 				</main>
 			</div>
 		</Router>

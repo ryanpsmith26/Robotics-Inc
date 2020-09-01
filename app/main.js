@@ -6,12 +6,10 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import Routes from './components/Routes';
-import AllRobots from './components/AllRobots';
 
 render(
 	<Provider store={store}>
 		<Routes />
-		<AllRobots />
 	</Provider>,
 	document.getElementById('main')
 );
