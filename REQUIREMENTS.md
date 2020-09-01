@@ -83,16 +83,16 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
   - [x] Make an AJAX request that causes the new robot to be persisted in the database
   - [x] Add the new robot to the list of robots without needing to refresh the page
 
-- [ ] Write a component to display a form for adding a new project that contains _at least_ an input for title
-- [ ] Display this component as part of the all-projects view, alongside the list of projects
+- [x] Write a component to display a form for adding a new project that contains _at least_ an input for title
+- [x] Display this component as part of the all-projects view, alongside the list of projects
 - Submitting the form with valid data should:
-  - [ ] Make an AJAX request that causes the new project to be saved to the database
-  - [ ] Add the new project to the list of projects without needing to refresh the page
+  - [x] Make an AJAX request that causes the new project to be saved to the database
+  - [x] Add the new project to the list of projects without needing to refresh the page
 
 #### Backend
 
 - [x] Write a route to add a new robot
-- [ ] Write a route to add a new project
+- [x] Write a route to add a new project
 
 Congrats! You have completed your third vertical slice! Make sure to `commit -m "Feature: Add Robot and Project"` before moving on (see RUBRIC.md - points are awarded/deducted for a proper git workflow)!
 

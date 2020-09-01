@@ -24,7 +24,7 @@ class NewProjectForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.addProject({
-			title: e.target.name.value
+			title: e.target.title.value
 		});
 		this.setState({
 			title: ''
