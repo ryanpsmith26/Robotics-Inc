@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AllRobots from './AllRobots';
+import AllProjects from './AllProjects';
 
 const Routes = () => {
 	return (
@@ -13,6 +14,7 @@ const Routes = () => {
 				</nav>
 				<main>
 					<Route exact path="/robots" component={AllRobots} />
+					<Route exact path="/projects" component={AllProjects} />
 				</main>
 			</div>
 		</Router>

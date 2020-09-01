@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { fetchRobots } from '../redux/robots';
 
 // Notice that we're exporting the AllRobots component twice. The named export
