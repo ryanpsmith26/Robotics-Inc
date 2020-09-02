@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { updateRobotInDb } from '../redux/robots';
+
 class EditRobotForm extends Component {
 	constructor(props) {
 		super(props);
@@ -21,9 +23,12 @@ class EditRobotForm extends Component {
 		});
 	}
 
+	// need to figure out how to pass in entire robot to updateRobot
+	// may need to put this form on the SingleRobot page to make it easy to access the whole robot
+	// alternatively I could figure out how to pass it down into this Component! not clear how...
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.editRobot();
+		this.props.updateRobot();
 		this.setState({
 			name: ''
 		});
@@ -42,9 +47,12 @@ class EditRobotForm extends Component {
 	}
 }
 
-const mapState = (state) => {};
-const mapDispatch = (dispatch) => {};
+const mapState = (state) => ({
+	robots: state.allRobots
+});
 
-// export default connect(mapState, mapDispatch)(EditRobotForm);
+const mapDispatch = (dispatch) => ({
+	updateRobot: (robot) => dispatch(updateRobotInDb(robot))
+});
 
-export default EditRobotForm;
+export default connect(mapState, mapDispatch)(EditRobotForm);

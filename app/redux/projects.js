@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// May refactor into independent reducers
-
 // ACTION TYPES =========================================
 
 const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';

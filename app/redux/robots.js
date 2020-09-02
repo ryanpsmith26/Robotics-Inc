@@ -1,13 +1,12 @@
 import axios from 'axios';
 
-// May refactor into independent reducers
-
 // ACTION TYPES =========================================
 
 const GET_ALL_ROBOTS = 'GET_ALL_ROBOTS';
 const GET_ROBOT = 'GET_ROBOT';
 const ADD_ROBOT = 'ADD_ROBOT';
 const DELETE_ROBOT = 'DELETE_ROBOT';
+const UPDATE_ROBOT = 'UPDATE_ROBOT';
 
 // ACTION CREATORS ======================================
 
@@ -28,6 +27,11 @@ const addedRobot = (newRobot) => ({
 
 const deletedRobot = (robot) => ({
 	type: DELETE_ROBOT,
+	robot
+});
+
+const updatedRobot = (robot) => ({
+	type: UPDATE_ROBOT,
 	robot
 });
 
@@ -67,6 +71,16 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 	try {
 		await axios.delete('/api/robots', { data: robot });
 		const action = deletedRobot(robot);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const updateRobotInDb = (robot) => async (dispatch) => {
+	try {
+		const { data: updatedRobotFromDb } = await axios.put(`api/robots/${robot.id}`, robot);
+		const action = updatedRobot(updatedRobotFromDb);
 		dispatch(action);
 	} catch (error) {
 		console.error(error);
@@ -116,6 +130,11 @@ export default function robotsReducer(state = initialState, action) {
 				...state,
 				allRobots: state.allRobots.filter((robot) => robot.id !== action.robot.id),
 				robot: action.robot
+			};
+		case UPDATE_ROBOT:
+			return {
+				...state,
+				allRobots: [ ...state.allRobots.filter((robot) => robot.id !== action.robot.id), action.robot ]
 			};
 		default:
 			return state;
