@@ -115,7 +115,6 @@ export default function projectsReducer(state = initialState, action) {
 			return {
 				...state,
 				allProjects: state.allProjects.filter((project) => project.id !== action.project.id),
-				// trying this:
 				project: action.project
 			};
 		default:
