@@ -11,6 +11,7 @@ import EditRobotForm from './EditRobotForm';
 import AllProjects from './AllProjects';
 import NewProjectForm from './NewProjectForm';
 import SingleProject from './SingleProject';
+import EditProjectForm from './EditProjectForm';
 
 const Routes = () => {
 	return (
@@ -36,6 +37,7 @@ const Routes = () => {
 						<Route path="/robots/forms/edit" component={EditRobotForm} />
 						<Route path="/robots" component={AllRobots} />
 						<Route exact path="/projects/:id" component={SingleProject} />
+						<Route path="/projects/forms/edit" component={EditProjectForm} />
 						<Route path="/projects" component={AllProjects} />
 					</Switch>
 				</main>

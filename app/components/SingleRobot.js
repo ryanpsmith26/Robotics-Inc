@@ -37,7 +37,11 @@ export class SingleRobot extends React.Component {
 						<h1>{robot.name}</h1>
 						<p>Fuel Type: {robot.fuelType}</p>
 						<p>Fuel Level: {robot.fuelLevel}%</p>
-						<Link to="forms/edit">Edit</Link>
+						<div className="EditLinkDiv">
+							<Link to="forms/edit" className="EditLink">
+								Edit
+							</Link>
+						</div>
 					</div>
 				</div>
 				<h2>Projects assigned to {robot.name}</h2>

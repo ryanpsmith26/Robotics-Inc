@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import RobotCard from './RobotCard';
 import { fetchRobots, deleteRobotFromDb } from '../redux/robots';
@@ -35,6 +36,11 @@ export class SingleProject extends React.Component {
 					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
 					<p>Deadline: {project.deadline}</p>
 					<p>Priority: {project.priority}</p>
+					<div className="EditLinkDiv">
+						<Link to="forms/edit" className="EditLink">
+							Edit
+						</Link>
+					</div>
 					<h3>Description: </h3>
 					<p>{project.description}</p>
 				</div>

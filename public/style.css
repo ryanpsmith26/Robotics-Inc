@@ -38,6 +38,7 @@ nav {
 	color: #fafafa;
 }
 
+/* caushing some issues downstream */
 a:hover,
 a:focus {
 	color: #c2c2c2;
@@ -168,3 +169,25 @@ main {
 }
 
 /* FORMS ============================================ */
+
+/* not in best location this is on single robots/projects */
+
+.EditLinkDiv {
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+.EditLink {
+	background-color: #49fc8b;
+	padding: 1em 2.75em;
+	color: #333333;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+
+.EditLink:hover,
+.EditLink:focus {
+	color: #333333;
+	background-color: #3ede79;
+}
