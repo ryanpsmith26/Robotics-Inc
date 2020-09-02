@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProjectCard = (props) => {
-	const project = props.project;
+	const { project } = props;
 	return (
 		<div className="Card">
 			<div className="CardFeaturedDiv">
