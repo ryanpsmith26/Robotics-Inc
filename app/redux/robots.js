@@ -108,6 +108,8 @@ export default function robotsReducer(state = initialState, action) {
 		case ADD_ROBOT:
 			return {
 				...state,
+				allRobots: [ ...state.allRobots, action.newRobot ],
+				// may be able to remove this:
 				newRobot: action.newRobot
 			};
 		case DELETE_ROBOT:

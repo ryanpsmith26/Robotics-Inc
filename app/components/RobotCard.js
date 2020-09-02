@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 import { deleteRobotFromDb } from '../redux/robots';
 
+// need to move handle delete to parents of RobotCard and just pass it down
+// RobotCard should be stateless
+
 class RobotCard extends Component {
 	constructor(props) {
 		super(props);
-		// from store:
+		// from store: NOT USED ====
 		this.allRobots = this.props.allRobots;
-		// from parent:
+		// from parent: NOT USED ====
 		this.robots = this.props.robots;
-		// current passing down robots arrays from two components
-		// AllRobots and SingleProject
-		// The tricky one is SingleProject
 		this.handleDelete = this.handleDelete.bind(this);
 
-		// from allRobots refactored:
+		// THIS IS USED!
 		this.robot = this.props.robot;
 	}
 

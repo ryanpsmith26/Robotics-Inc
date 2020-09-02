@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import RobotCard from './RobotCards';
+import RobotCard from './RobotCard';
 import { fetchRobots } from '../redux/robots';
 
 export class AllRobots extends React.Component {
@@ -11,7 +11,7 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		const { robots, newRobot } = this.props;
+		const { robots } = this.props;
 		console.log('allrobots--->', robots);
 		return (
 			<React.Fragment>
@@ -19,9 +19,6 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
-				{/* add newRobot submission from state if exists */}
-				{newRobot.name && <RobotCard robots={[ newRobot ]} />}
-				{/* check if robots is empty on state */}
 				{robots.length ? (
 					robots.map((robot) => <RobotCard key={robot.id} robot={robot} />)
 				) : (
@@ -33,8 +30,7 @@ export class AllRobots extends React.Component {
 }
 
 const mapState = (state) => ({
-	robots: state.robots.allRobots,
-	newRobot: state.robots.newRobot
+	robots: state.robots.allRobots
 });
 
 const mapDispatch = (dispatch) => ({
