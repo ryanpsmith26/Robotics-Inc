@@ -20,8 +20,8 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
+		// refactor to constructr???
 		const { robots } = this.props;
-		console.log('allrobots--->', robots);
 		return (
 			<React.Fragment>
 				<div className="MainHeader">

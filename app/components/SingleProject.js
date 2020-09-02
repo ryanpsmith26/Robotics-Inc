@@ -14,11 +14,14 @@ export class SingleProject extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.fetchProject(this.id);
 		this.props.fetchRobots();
+		this.props.fetchProject(this.id);
 	}
 
 	render() {
+		console.log('inside single proj this.project-->', this.project);
+		console.log('inside single proj this.robots-->', this.robots);
+
 		const mappedProjectIds = this.project.Robots.map((robotProject) => robotProject.id);
 		const filteredRobots = this.robots.filter((robot) => mappedProjectIds.includes(robot.id));
 
