@@ -37,6 +37,24 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
+// PUT /api/robots/:id
+router.put('/:id', async (req, res, next) => {
+	try {
+		const [ , [ updatedRobot ] ] = await Robot.update(
+			{ ...req.body },
+			{
+				where: {
+					id: req.body.id
+				},
+				returning: true
+			}
+		);
+		res.json(updatedRobot);
+	} catch (error) {
+		next(error);
+	}
+});
+
 // DELETE /api/robots
 router.delete('/', async (req, res, next) => {
 	try {

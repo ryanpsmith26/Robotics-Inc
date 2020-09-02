@@ -37,6 +37,24 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
+// PUT /api/projects/:id
+router.put('/:id', async (req, res, next) => {
+	try {
+		const [ , [ updatedProject ] ] = await Project.update(
+			{ ...req.body },
+			{
+				where: {
+					id: req.body.id
+				},
+				returning: true
+			}
+		);
+		res.json(updatedProject);
+	} catch (error) {
+		next(error);
+	}
+});
+
 // DELETE /api/projects
 router.delete('/', async (req, res, next) => {
 	try {
