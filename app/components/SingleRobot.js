@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectCard from './ProjectCard';
-import { fetchRobot } from '../redux/robots';
+import { fetchRobot, fetchRobots } from '../redux/robots';
 import { fetchProjects, deleteProjectFromDb } from '../redux/projects';
 
 export class SingleRobot extends React.Component {
@@ -14,11 +14,11 @@ export class SingleRobot extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchRobot(this.id);
+		this.props.fetchProjects();
 	}
 
 	handleDelete(project) {
 		this.props.deleteProject(project);
-		this.props.fetchRobot(this.id);
 	}
 
 	render() {
@@ -57,6 +57,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
 	return {
 		fetchRobot: (id) => dispatch(fetchRobot(id)),
+		fetchRobots: () => dispatch(fetchRobots()),
 		fetchProjects: () => dispatch(fetchProjects()),
 		deleteProject: (project) => dispatch(deleteProjectFromDb(project))
 	};

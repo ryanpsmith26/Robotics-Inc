@@ -17,7 +17,6 @@ export class AllProjects extends React.Component {
 
 	handleDelete(project) {
 		this.props.deleteProject(project);
-		this.props.fetchProjects();
 	}
 
 	render() {

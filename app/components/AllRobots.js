@@ -17,7 +17,6 @@ export class AllRobots extends React.Component {
 
 	handleDelete(robot) {
 		this.props.deleteRobot(robot);
-		this.props.fetchRobots();
 	}
 
 	render() {

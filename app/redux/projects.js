@@ -114,7 +114,9 @@ export default function projectsReducer(state = initialState, action) {
 		case DELETE_PROJECT:
 			return {
 				...state,
-				allProjects: state.allProjects.filter((project) => project.id !== action.project)
+				allProjects: state.allProjects.filter((project) => project.id !== action.project.id),
+				// trying this:
+				project: action.project
 			};
 		default:
 			return state;
