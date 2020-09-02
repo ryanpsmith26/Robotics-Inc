@@ -1,8 +1,3 @@
-/*
- * Hi! I'm your stylesheet! I've got some sensible defaults here,
- * but feel free to change me to your heart's content!
- */
-
 * {
 	box-sizing: border-box;
 	font-family: monospace;
@@ -39,7 +34,6 @@ nav {
 	font-size: 2rem;
 }
 
-/* add underline for active! */
 .NavList a {
 	color: #fafafa;
 }
@@ -49,6 +43,12 @@ a:focus {
 	color: #c2c2c2;
 }
 
+.NavActive {
+	padding-bottom: 4px;
+	border-bottom: 1px solid #fafafa;
+}
+
+/* unused? */
 ul {
 	list-style: none;
 }
@@ -83,11 +83,6 @@ main {
 .MainHeader a:focus {
 	background-color: #00baff;
 }
-
-/* TEMP */
-/* img {
-	width: 50px;
-} */
 
 /* FEATURED ROBOT ===================================== */
 

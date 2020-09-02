@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
 
 import Home from './Home';
 import AllRobots from './AllRobots';
@@ -15,9 +15,15 @@ const Routes = () => {
 		<Router>
 			<div>
 				<nav className="NavList">
-					<Link to="/">Home</Link>
-					<Link to="/robots">Robots</Link>
-					<Link to="/projects">Projects</Link>
+					<NavLink to="/" activeClassName="NavActive" exact={true}>
+						Home
+					</NavLink>
+					<NavLink to="/robots" activeClassName="NavActive">
+						Robots
+					</NavLink>
+					<NavLink to="/projects" activeClassName="NavActive">
+						Projects
+					</NavLink>
 				</nav>
 				<main>
 					<Route exact path="/" component={Home} />
