@@ -15,7 +15,8 @@ const RobotCard = (props) => {
 						<div className="CardContent">
 							<Link to={`/robots/${robot.id}`}>
 								<h2 className="CardTitle">{robot.name}</h2>
-								<p>{robot.Projects.length} projects</p>
+								{/* quick fix for bug when submitting new robot */}
+								<p>{robot.Projects ? robot.Projects.length : 0} projects</p>
 								<p>Fuel Type: {robot.fuelType}</p>
 								<p>Fuel Level: {robot.fuelLevel}%</p>
 							</Link>

@@ -18,7 +18,7 @@ export class SingleProject extends React.Component {
 
 	render() {
 		const { project, robots } = this.props;
-		const mappedProjectIds = project.Robots.map((project) => project.id);
+		const mappedProjectIds = project.Robots.map((robotProject) => robotProject.id);
 		const filteredRobots = robots.filter((robot) => mappedProjectIds.includes(robot.id));
 		console.log('filtered', filteredRobots);
 
