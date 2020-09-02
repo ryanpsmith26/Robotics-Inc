@@ -4,7 +4,9 @@ const { Robot, Project } = require('../db');
 // GET /api/projects
 router.get('/', async (req, res, next) => {
 	try {
-		const allProjects = await Project.findAll();
+		const allProjects = await Project.findAll({
+			include: [ { model: Robot } ]
+		});
 		res.json(allProjects);
 	} catch (error) {
 		next(error);

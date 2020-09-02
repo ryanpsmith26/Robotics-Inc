@@ -15,6 +15,7 @@ const RobotCard = (props) => {
 						<div className="CardContent">
 							<Link to={`/robots/${robot.id}`}>
 								<h2 className="CardTitle">{robot.name}</h2>
+								<p>{robot.Projects.length} projects</p>
 								<p>Fuel Type: {robot.fuelType}</p>
 								<p>Fuel Level: {robot.fuelLevel}%</p>
 							</Link>
