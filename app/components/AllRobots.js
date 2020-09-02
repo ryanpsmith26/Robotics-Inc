@@ -3,10 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import RobotCard from './RobotCard';
-import { fetchRobots } from '../redux/robots';
+import { fetchRobots, deleteRobotFromDb } from '../redux/robots';
 
 export class AllRobots extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleDelete = this.handleDelete.bind(this);
+	}
 	componentDidMount() {
+		this.props.fetchRobots();
+	}
+
+	handleDelete(robot) {
+		this.props.deleteRobot(robot);
 		this.props.fetchRobots();
 	}
 
@@ -20,7 +29,7 @@ export class AllRobots extends React.Component {
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
 				{robots.length ? (
-					robots.map((robot) => <RobotCard key={robot.id} robot={robot} />)
+					robots.map((robot) => <RobotCard key={robot.id} robot={robot} handleDelete={this.handleDelete} />)
 				) : (
 					<p>There are no robots registered in the database!</p>
 				)}
@@ -34,7 +43,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	fetchRobots: () => dispatch(fetchRobots())
+	fetchRobots: () => dispatch(fetchRobots()),
+	deleteRobot: (robot) => dispatch(deleteRobotFromDb(robot))
 });
 
 export default connect(mapState, mapDispatch)(AllRobots);

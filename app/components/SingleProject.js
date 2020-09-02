@@ -9,6 +9,8 @@ export class SingleProject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.id = this.props.match.params.id;
+		this.project = this.props.project;
+		this.robots = this.props.robots;
 	}
 
 	componentDidMount() {
@@ -17,20 +19,18 @@ export class SingleProject extends React.Component {
 	}
 
 	render() {
-		const { project, robots } = this.props;
-		const mappedProjectIds = project.Robots.map((robotProject) => robotProject.id);
-		const filteredRobots = robots.filter((robot) => mappedProjectIds.includes(robot.id));
-		console.log('filtered', filteredRobots);
+		const mappedProjectIds = this.project.Robots.map((robotProject) => robotProject.id);
+		const filteredRobots = this.robots.filter((robot) => mappedProjectIds.includes(robot.id));
 
 		return (
 			<React.Fragment>
 				<div>
-					<h2>{project.title}</h2>
-					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
-					<p>Deadline: {project.deadline}</p>
-					<p>Priority: {project.priority}</p>
+					<h2>{this.project.title}</h2>
+					<p>Status: {this.project.completed ? 'Complete' : 'Open'}</p>
+					<p>Deadline: {this.project.deadline}</p>
+					<p>Priority: {this.project.priority}</p>
 					<h3>Description: </h3>
-					<p>{project.description}</p>
+					<p>{this.project.description}</p>
 				</div>
 				<h2>Robots assigned to this project</h2>
 				{/* check if project has any robots */}
