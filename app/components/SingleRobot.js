@@ -18,7 +18,7 @@ export class SingleRobot extends React.Component {
 
 	handleDelete(project) {
 		this.props.deleteProject(project);
-		this.props.fetchProjects();
+		this.props.fetchRobot(this.id);
 	}
 
 	render() {

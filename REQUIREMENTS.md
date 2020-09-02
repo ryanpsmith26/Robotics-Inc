@@ -112,7 +112,7 @@ Congrats! You have completed your third vertical slice! Make sure to `commit -m 
 - [x] In the all-projects view, include an `X` button next to each project
 - Clicking the `X` button should:
   - [x] Make an AJAX request that causes that project to be removed from database
-  - [ ] Remove the project from the list of projects without needing to refresh the page
+  - [x] Remove the project from the list of projects without needing to refresh the page
 
 #### Backend
 
