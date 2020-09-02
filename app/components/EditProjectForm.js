@@ -12,13 +12,25 @@ class EditProjectForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange(e) {}
+	handleChange(e) {
+		const inputField = e.target.name;
+		const userInput = e.target.value;
+		this.setState({
+			[inputField]: userInput
+		});
+	}
 
 	handleSubmit(e) {
 		e.preventDefault();
+		this.props.editProject();
+		this.setState({
+			title: ''
+		});
 	}
 
 	render() {
+		console.log(this.state);
+
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>Project Name: </label>
