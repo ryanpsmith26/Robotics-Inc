@@ -22,7 +22,11 @@ export class AllRobots extends React.Component {
 				{/* add newRobot submission from state if exists */}
 				{newRobot.name && <RobotCard robots={[ newRobot ]} />}
 				{/* check if robots is empty on state */}
-				{robots.length ? <RobotCard robots={robots} /> : <p>There are no robots registered in the database!</p>}
+				{robots.length ? (
+					robots.map((robot) => <RobotCard key={robot.id} robot={robot} />)
+				) : (
+					<p>There are no robots registered in the database!</p>
+				)}
 			</React.Fragment>
 		);
 	}

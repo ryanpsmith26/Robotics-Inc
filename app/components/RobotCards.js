@@ -15,6 +15,9 @@ class RobotCard extends Component {
 		// AllRobots and SingleProject
 		// The tricky one is SingleProject
 		this.handleDelete = this.handleDelete.bind(this);
+
+		// from allRobots refactored:
+		this.robot = this.props.robot;
 	}
 
 	handleDelete(robot) {
@@ -23,28 +26,22 @@ class RobotCard extends Component {
 
 	render() {
 		return (
-			<div className="Cards">
-				{this.robots.map((robot) => (
-					<div key={robot.id}>
-						<div className="Card">
-							<div className="CardFeaturedDiv">
-								<img src={robot.imageUrl} className="CardImg" />
-							</div>
-							<div className="CardContent">
-								<Link to={`/robots/${robot.id}`}>
-									<h2 className="CardTitle">{robot.name}</h2>
-									{/* fixes bug when submitting new robot */}
-									<p>{robot.Projects ? robot.Projects.length : 0} projects</p>
-									<p>Fuel Type: {robot.fuelType}</p>
-									<p>Fuel Level: {robot.fuelLevel}%</p>
-								</Link>
-							</div>
-							<button type="button" className="CardDeleteBtn" onClick={() => this.handleDelete(robot)}>
-								&times;
-							</button>
-						</div>
-					</div>
-				))}
+			<div className="Card">
+				<div className="CardFeaturedDiv">
+					<img src={this.robot.imageUrl} className="CardImg" />
+				</div>
+				<div className="CardContent">
+					<Link to={`/robots/${this.robot.id}`}>
+						<h2 className="CardTitle">{this.robot.name}</h2>
+						{/* fixes bug when submitting new robot */}
+						<p>{this.robot.Projects ? this.robot.Projects.length : 0} projects</p>
+						<p>Fuel Type: {this.robot.fuelType}</p>
+						<p>Fuel Level: {this.robot.fuelLevel}%</p>
+					</Link>
+				</div>
+				<button type="button" className="CardDeleteBtn" onClick={() => this.handleDelete(this.robot)}>
+					&times;
+				</button>
 			</div>
 		);
 	}
