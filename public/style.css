@@ -112,7 +112,7 @@ main {
 
 .Card {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	margin: 2em;
 	padding: 1.25em;
 	background-color: #c9c9c9;
@@ -141,6 +141,22 @@ main {
 	text-decoration: underline;
 }
 
+.CardDeleteBtn {
+	width: 65px;
+	height: 30px;
+	border: none;
+	align-self: flex-end;
+	background-color: #ff4a4a;
+	color: #fafafa;
+	font-size: 2rem;
+	border-radius: 5px;
+}
+
+.CardDeleteBtn:hover,
+.CardDeleteBtn:focus {
+	background-color: #fa2f2f;
+}
+
 /* repeating here with .MainHeader a */
 .Card a {
 	color: #333333;
@@ -150,3 +166,5 @@ main {
 .Card a:focus {
 	color: #757575;
 }
+
+/* FORMS ============================================ */

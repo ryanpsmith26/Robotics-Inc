@@ -12,6 +12,7 @@ export class AllRobots extends React.Component {
 
 	render() {
 		const { robots, newRobot } = this.props;
+		console.log('allrobots--->', robots);
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
