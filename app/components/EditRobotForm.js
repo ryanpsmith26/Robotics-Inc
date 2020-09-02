@@ -26,6 +26,7 @@ class EditRobotForm extends Component {
 	// need to figure out how to pass in entire robot to updateRobot
 	// may need to put this form on the SingleRobot page to make it easy to access the whole robot
 	// alternatively I could figure out how to pass it down into this Component! not clear how...
+	// note: project api route is functioning, no edits to store nor connecting up edit form.
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.updateRobot();
