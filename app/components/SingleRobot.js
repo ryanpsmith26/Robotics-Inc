@@ -22,7 +22,12 @@ export class SingleRobot extends React.Component {
 	}
 
 	render() {
-		const { robot } = this.props;
+		const { robot, projects } = this.props;
+
+		// creating filtered projects array to pass into ProjectCard component to render on projects on this robot:
+		const mappedRobotIds = robot.Projects.map((robotProject) => robotProject.id);
+		const filteredProjects = projects.filter((project) => mappedRobotIds.includes(project.id));
+
 		return (
 			<React.Fragment>
 				<div className="FeaturedRobotDiv">
@@ -35,8 +40,8 @@ export class SingleRobot extends React.Component {
 				</div>
 				<h2>Projects assigned to {robot.name}</h2>
 				{/* check if projects is empty on state for single robot */}
-				{robot.Projects.length ? (
-					robot.Projects.map((project) => (
+				{filteredProjects.length ? (
+					filteredProjects.map((project) => (
 						<ProjectCard key={project.id} project={project} handleDelete={this.handleDelete} />
 					))
 				) : (
