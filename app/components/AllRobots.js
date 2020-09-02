@@ -10,6 +10,7 @@ export class AllRobots extends React.Component {
 		super(props);
 		this.handleDelete = this.handleDelete.bind(this);
 	}
+
 	componentDidMount() {
 		this.props.fetchRobots();
 	}

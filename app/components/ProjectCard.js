@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProjectCard = (props) => {
-	const { project } = props;
+	const { project, handleDelete } = props;
+
 	return (
 		<div className="Card">
 			<div className="CardFeaturedDiv">
@@ -15,6 +16,9 @@ const ProjectCard = (props) => {
 					<p>Priority: {project.priority}</p>
 				</Link>
 			</div>
+			<button type="button" className="CardDeleteBtn" onClick={() => handleDelete(project)}>
+				&times;
+			</button>
 		</div>
 	);
 };

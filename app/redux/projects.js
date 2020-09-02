@@ -7,6 +7,7 @@ import axios from 'axios';
 const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
 const GET_PROJECT = 'GET_PROJECT';
 const ADD_PROJECT = 'ADD_PROJECT';
+const DELETE_PROJECT = 'DELETE_PROJECT';
 
 // ACTION CREATORS ======================================
 
@@ -23,6 +24,11 @@ const gotProject = (project) => ({
 const addedProject = (newProject) => ({
 	type: ADD_PROJECT,
 	newProject
+});
+
+const deletedProject = (project) => ({
+	type: DELETE_PROJECT,
+	project
 });
 
 // THUNK CREATORS =======================================
@@ -51,6 +57,16 @@ export const addProjectToDb = (newProject) => async (dispatch) => {
 	try {
 		const { data: newProjectFromDb } = await axios.post('/api/projects', newProject);
 		const action = addedProject(newProjectFromDb);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const deleteProjectFromDb = (project) => async (dispatch) => {
+	try {
+		await axios.delete('/api/projects', { data: project });
+		const action = deletedProject(project);
 		dispatch(action);
 	} catch (error) {
 		console.error(error);
@@ -94,6 +110,11 @@ export default function projectsReducer(state = initialState, action) {
 				...state,
 				allProjects: [ ...state.allProjects, action.newProject ],
 				newProject: action.newProject
+			};
+		case DELETE_PROJECT:
+			return {
+				...state,
+				allProjects: state.allProjects.filter((project) => project.id !== action.project)
 			};
 		default:
 			return state;

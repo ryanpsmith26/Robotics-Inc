@@ -3,15 +3,22 @@ import { connect } from 'react-redux';
 
 import ProjectCard from './ProjectCard';
 import { fetchRobot } from '../redux/robots';
+import { fetchProjects, deleteProjectFromDb } from '../redux/projects';
 
 export class SingleRobot extends React.Component {
 	constructor(props) {
 		super(props);
 		this.id = this.props.match.params.id;
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	componentDidMount() {
 		this.props.fetchRobot(this.id);
+	}
+
+	handleDelete(project) {
+		this.props.deleteProject(project);
+		this.props.fetchProjects();
 	}
 
 	render() {
@@ -29,7 +36,9 @@ export class SingleRobot extends React.Component {
 				<h2>Projects assigned to {robot.name}</h2>
 				{/* check if projects is empty on state for single robot */}
 				{robot.Projects.length ? (
-					robot.Projects.map((project) => <ProjectCard key={project.id} project={project} />)
+					robot.Projects.map((project) => (
+						<ProjectCard key={project.id} project={project} handleDelete={this.handleDelete} />
+					))
 				) : (
 					<p>There are no projects currently assigned to this robot.</p>
 				)}
@@ -40,13 +49,16 @@ export class SingleRobot extends React.Component {
 
 const mapState = (state) => {
 	return {
-		robot: state.robots.robot
+		robot: state.robots.robot,
+		projects: state.projects.allProjects
 	};
 };
 
 const mapDispatch = (dispatch) => {
 	return {
-		fetchRobot: (id) => dispatch(fetchRobot(id))
+		fetchRobot: (id) => dispatch(fetchRobot(id)),
+		fetchProjects: () => dispatch(fetchProjects()),
+		deleteProject: (project) => dispatch(deleteProjectFromDb(project))
 	};
 };
 

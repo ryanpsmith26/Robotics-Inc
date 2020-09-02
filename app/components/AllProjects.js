@@ -3,10 +3,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ProjectCard from './ProjectCard';
-import { fetchProjects } from '../redux/projects';
+import { fetchProjects, deleteProjectFromDb } from '../redux/projects';
 
 export class AllProjects extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleDelete = this.handleDelete.bind(this);
+	}
+
 	componentDidMount() {
+		this.props.fetchProjects();
+	}
+
+	handleDelete(project) {
+		this.props.deleteProject(project);
 		this.props.fetchProjects();
 	}
 
@@ -20,7 +30,9 @@ export class AllProjects extends React.Component {
 				</div>
 				{/* check if projects is empty on state */}
 				{projects.length ? (
-					projects.map((project) => <ProjectCard key={project.id} project={project} />)
+					projects.map((project) => (
+						<ProjectCard key={project.id} project={project} handleDelete={this.handleDelete} />
+					))
 				) : (
 					<p>There are no projects registered in the database.</p>
 				)}
@@ -34,7 +46,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	fetchProjects: () => dispatch(fetchProjects())
+	fetchProjects: () => dispatch(fetchProjects()),
+	deleteProject: (project) => dispatch(deleteProjectFromDb(project))
 });
 
 export default connect(mapState, mapDispatch)(AllProjects);
