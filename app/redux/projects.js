@@ -92,6 +92,7 @@ export default function projectsReducer(state = initialState, action) {
 		case ADD_PROJECT:
 			return {
 				...state,
+				allProjects: [ ...state.allProjects, action.newProject ],
 				newProject: action.newProject
 			};
 		default:

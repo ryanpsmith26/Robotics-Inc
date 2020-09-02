@@ -14,12 +14,14 @@ export class SingleProject extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.fetchRobots();
 		this.props.fetchProject(this.id);
+		console.log('on comp mount in single project, this.project-->', this.project);
+		this.props.fetchRobots();
 	}
 
 	render() {
-		console.log('inside single proj this.project-->', this.project);
+		console.log('inside single proj this.id', this.id);
+		console.log('inside single proj RENDER this.project-->', this.project);
 		console.log('inside single proj this.robots-->', this.robots);
 
 		const mappedProjectIds = this.project.Robots.map((robotProject) => robotProject.id);

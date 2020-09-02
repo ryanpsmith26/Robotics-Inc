@@ -20,7 +20,7 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		// refactor to constructr???
+		// refactor to constructor???
 		const { robots } = this.props;
 		return (
 			<React.Fragment>
