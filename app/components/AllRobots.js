@@ -20,7 +20,6 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		// refactor to constructor???
 		const { robots } = this.props;
 		return (
 			<React.Fragment>
@@ -28,6 +27,7 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
+				{/*  check if robots is empty on state */}
 				{robots.length ? (
 					robots.map((robot) => <RobotCard key={robot.id} robot={robot} handleDelete={this.handleDelete} />)
 				) : (

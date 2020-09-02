@@ -11,15 +11,13 @@ export class AllProjects extends React.Component {
 	}
 
 	render() {
-		const { projects, newProject } = this.props;
+		const { projects } = this.props;
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
 					<h1>All Projects</h1>
 					<Link to="/projects/forms/add">Add Project</Link>
 				</div>
-				{/* add newProject submission from state if exists */}
-				{/* {newProject.title && <ProjectCard projects={[ newProject ]} />} */}
 				{/* check if projects is empty on state */}
 				{projects.length ? (
 					projects.map((project) => <ProjectCard key={project.id} project={project} />)
@@ -33,7 +31,6 @@ export class AllProjects extends React.Component {
 
 const mapState = (state) => ({
 	projects: state.projects.allProjects
-	// newProject: state.projects.newProject
 });
 
 const mapDispatch = (dispatch) => ({

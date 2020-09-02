@@ -1,29 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// import { deleteRobotFromDb } from '../redux/robots';
-
-// need to move handle delete to parents of RobotCard and just pass it down
 // RobotCard should be stateless
 
 class RobotCard extends Component {
 	constructor(props) {
 		super(props);
-		// // from store: NOT USED ====
-		// this.allRobots = this.props.allRobots;
-		// // from parent: NOT USED ====
-		// this.robots = this.props.robots;
-		// this.handleDelete = this.handleDelete.bind(this);
 
 		// THIS IS USED!
 		this.robot = this.props.robot;
 		this.handleDelete = this.props.handleDelete;
 	}
-
-	// handleDelete(robot) {
-	// 	this.props.deleteRobot(robot);
-	// }
 
 	render() {
 		return (
@@ -47,13 +34,5 @@ class RobotCard extends Component {
 		);
 	}
 }
-
-// const mapState = (state) => ({
-// 	allRobots: state.allRobots
-// });
-
-// const mapDispatch = (dispatch) => ({
-// 	deleteRobot: (robot) => dispatch(deleteRobotFromDb(robot))
-// });
 
 export default RobotCard;
