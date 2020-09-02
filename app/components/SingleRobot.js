@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ProjectCard from './ProjectCards';
+import ProjectCard from './ProjectCard';
 import { fetchRobot } from '../redux/robots';
 
 export class SingleRobot extends React.Component {
@@ -29,7 +29,7 @@ export class SingleRobot extends React.Component {
 				<h2>Projects assigned to {robot.name}</h2>
 				{/* check if projects is empty on state for single robot */}
 				{robot.Projects.length ? (
-					<ProjectCard projects={robot.Projects} />
+					robot.Projects.map((project) => <ProjectCard key={project.id} project={project} />)
 				) : (
 					<p>There are no projects currently assigned to this robot.</p>
 				)}

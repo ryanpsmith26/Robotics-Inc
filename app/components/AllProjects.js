@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import ProjectCard from './ProjectCards';
+import ProjectCard from './ProjectCard';
 import { fetchProjects } from '../redux/projects';
 
 export class AllProjects extends React.Component {
@@ -22,7 +22,7 @@ export class AllProjects extends React.Component {
 				{newProject.title && <ProjectCard projects={[ newProject ]} />}
 				{/* check if projects is empty on state */}
 				{projects.length ? (
-					<ProjectCard projects={projects} />
+					projects.map((project) => <ProjectCard key={project.id} project={project} />)
 				) : (
 					<p>There are no projects registered in the database.</p>
 				)}
