@@ -69,7 +69,7 @@ class NewRobotForm extends Component {
 }
 
 const mapState = (state) => ({
-	newRobot: state.robots.newRobot
+	// newRobot: state.robots.newRobot
 });
 
 const mapDispatch = (dispatch) => ({

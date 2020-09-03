@@ -30,14 +30,15 @@ const Routes = () => {
 				</nav>
 				<main>
 					<Route exact path="/" component={Home} />
+
 					<Route path="/robots/forms/add" component={NewRobotForm} />
+					{/* <Route path="/robots/forms/edit" component={EditRobotForm} /> */}
 					<Route path="/projects/forms/add" component={NewProjectForm} />
 					<Switch>
 						<Route exact path="/robots/:id" component={SingleRobot} />
-						<Route path="/robots/forms/edit" component={EditRobotForm} />
 						<Route path="/robots" component={AllRobots} />
+
 						<Route exact path="/projects/:id" component={SingleProject} />
-						<Route path="/projects/forms/edit" component={EditProjectForm} />
 						<Route path="/projects" component={AllProjects} />
 					</Switch>
 				</main>

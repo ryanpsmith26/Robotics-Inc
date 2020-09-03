@@ -77,9 +77,11 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 	}
 };
 
+// going add updatedRobot to state, then in reducer set robot to updatedRobot for rendering
 export const updateRobotInDb = (robot) => async (dispatch) => {
 	try {
-		const { data: updatedRobotFromDb } = await axios.put(`api/robots/${robot.id}`, robot);
+		console.log('robot passed into thunk creator---->', robot);
+		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${robot.id}`, robot);
 		const action = updatedRobot(updatedRobotFromDb);
 		dispatch(action);
 	} catch (error) {

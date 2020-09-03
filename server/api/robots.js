@@ -1,6 +1,25 @@
 const router = require('express').Router();
 const { Robot, Project } = require('../db');
 
+// PUT /api/robots/:id
+router.put('/:id', async (req, res, next) => {
+	try {
+		console.log('req.body from PUT route----->', req.body);
+		const [ , [ updatedRobot ] ] = await Robot.update(
+			{ ...req.body },
+			{
+				where: {
+					id: req.body.id
+				},
+				returning: true
+			}
+		);
+		res.json(updatedRobot);
+	} catch (error) {
+		next(error);
+	}
+});
+
 // GET /api/robots
 router.get('/', async (req, res, next) => {
 	try {
@@ -32,24 +51,6 @@ router.post('/', async (req, res, next) => {
 		const newRobotId = await Robot.max('id');
 		const newRobot = await Robot.findByPk(newRobotId);
 		res.json(newRobot);
-	} catch (error) {
-		next(error);
-	}
-});
-
-// PUT /api/robots/:id
-router.put('/:id', async (req, res, next) => {
-	try {
-		const [ , [ updatedRobot ] ] = await Robot.update(
-			{ ...req.body },
-			{
-				where: {
-					id: req.body.id
-				},
-				returning: true
-			}
-		);
-		res.json(updatedRobot);
 	} catch (error) {
 		next(error);
 	}

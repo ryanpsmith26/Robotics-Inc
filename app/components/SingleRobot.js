@@ -22,7 +22,12 @@ export class SingleRobot extends React.Component {
 		this.props.deleteProject(project);
 	}
 
+	// set this robot on state to make accessible from EditRobotForm
+	handleEditBtnClick(robotToUpdate) {}
+
 	render() {
+		console.log('this.props from SingleRobot----->', this.props);
+
 		const { robot, projects } = this.props;
 
 		// creating filtered projects array to pass into ProjectCard component to render on projects on this robot:
