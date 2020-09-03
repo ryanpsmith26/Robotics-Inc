@@ -43,7 +43,7 @@ export class SingleRobot extends React.Component {
 						<p>Fuel Type: {robot.fuelType}</p>
 						<p>Fuel Level: {robot.fuelLevel}%</p>
 						<div className="EditLinkDiv">
-							<Link to="forms/edit" className="EditLink">
+							<Link to={`/robots/single_robot/${robot.id}/forms/edit`} className="EditLink">
 								Edit
 							</Link>
 						</div>

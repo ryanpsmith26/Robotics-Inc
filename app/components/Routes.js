@@ -32,15 +32,15 @@ const Routes = () => {
 					<Route exact path="/" component={Home} />
 
 					<Route path="/robots/forms/add" component={NewRobotForm} />
-					{/* <Route path="/robots/forms/edit" component={EditRobotForm} /> */}
+					<Route path="/robots/single_robot/:id/forms/edit" component={EditRobotForm} />
 					<Route path="/projects/forms/add" component={NewProjectForm} />
-					<Switch>
-						<Route exact path="/robots/:id" component={SingleRobot} />
-						<Route path="/robots" component={AllRobots} />
+					{/* <Switch> */}
+					<Route path="/robots/single_robot/:id" component={SingleRobot} />
+					<Route path="/robots" component={AllRobots} />
 
-						<Route exact path="/projects/:id" component={SingleProject} />
-						<Route path="/projects" component={AllProjects} />
-					</Switch>
+					<Route exact path="/projects/:id" component={SingleProject} />
+					<Route path="/projects" component={AllProjects} />
+					{/* </Switch> */}
 				</main>
 			</div>
 		</Router>
