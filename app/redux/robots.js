@@ -77,13 +77,13 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 	}
 };
 
-export const updateRobotInDb = (id, name) => async (dispatch) => {
+export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	try {
 		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
 			id: id,
-			name: name
+			name: name,
+			fuelType: fuelType
 		});
-		console.log('updated robot back from DB inside thunk---', updatedRobotFromDb);
 		const action = updatedRobot(updatedRobotFromDb);
 		dispatch(action);
 	} catch (error) {

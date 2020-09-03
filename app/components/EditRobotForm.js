@@ -18,19 +18,18 @@ class EditRobotForm extends Component {
 	}
 
 	handleChange(e) {
-		const nameInputField = e.target.name;
-		// const fuelTypeInputField = e.target.fuelType;
+		const inputField = e.target.name;
 		const userInput = e.target.value;
 		this.setState({
-			[nameInputField]: userInput
+			[inputField]: userInput
 		});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log('this.id in form----->', this.id);
-		// getting this working with just passing name down first
-		this.props.updateRobot(this.id, e.target.name.value);
+		const name = e.target.name.value;
+		const fuelType = e.target.fuelType.value;
+		this.props.updateRobot(this.id, name, fuelType);
 		this.setState({
 			name: '',
 			fuelType: ''
@@ -41,10 +40,17 @@ class EditRobotForm extends Component {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>Robot Name: </label>
-				<input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
+				<input
+					type="text"
+					name="name"
+					onChange={this.handleChange}
+					value={this.state.name}
+					required
+					placeholder="Enter Name"
+				/>
 				<br />
 				<label>Fuel Type: </label>
-				<select name="fuelType" onChange={this.handleChange} value={this.state.fuelType}>
+				<select name="fuelType" onChange={this.handleChange} value={this.state.fuelType} required>
 					<option value="">--</option>
 					<option value="electric">Electric</option>
 					<option value="gas">Gas</option>
@@ -62,7 +68,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	updateRobot: (id, name) => dispatch(updateRobotInDb(id, name))
+	updateRobot: (id, name, fuelType) => dispatch(updateRobotInDb(id, name, fuelType))
 });
 
 export default connect(mapState, mapDispatch)(EditRobotForm);

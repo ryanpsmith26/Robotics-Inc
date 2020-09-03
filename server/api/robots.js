@@ -5,7 +5,7 @@ const { Robot, Project } = require('../db');
 router.put('/:id', async (req, res, next) => {
 	try {
 		await Robot.update(
-			{ name: req.body.name },
+			{ name: req.body.name, fuelType: req.body.fuelType },
 			{
 				where: {
 					id: req.body.id
