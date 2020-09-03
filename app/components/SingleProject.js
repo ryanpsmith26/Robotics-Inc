@@ -37,7 +37,7 @@ export class SingleProject extends React.Component {
 					<p>Deadline: {project.deadline}</p>
 					<p>Priority: {project.priority}</p>
 					<div className="EditLinkDiv">
-						<Link to="forms/edit" className="EditLink">
+						<Link to={`/projects/single_project/${project.id}/forms/edit`} className="EditLink">
 							Edit
 						</Link>
 					</div>
