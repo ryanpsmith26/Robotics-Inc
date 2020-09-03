@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RobotCard = (props) => {
-	const { robot, handleDelete } = props;
+	const { robot, handleDelete, displayUnassignBtn, handleUnassignProject, projectId } = props;
 
 	return (
 		<div className="Card">
@@ -18,6 +18,17 @@ const RobotCard = (props) => {
 					<p>Fuel Level: {robot.fuelLevel}%</p>
 				</Link>
 			</div>
+			{displayUnassignBtn ? (
+				<button
+					type="button"
+					className="CardUnassignBtn"
+					onClick={() => handleUnassignProject(projectId, robot.id)}
+				>
+					Unassign
+				</button>
+			) : (
+				''
+			)}
 			<button type="button" className="CardDeleteBtn" onClick={() => handleDelete(robot)}>
 				&times;
 			</button>

@@ -100,7 +100,6 @@ export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 export const unassignRobotInDb = (robotId, projectId) => async (dispatch) => {
 	try {
 		const { data: unassignedRobot } = await axios.put(`/api/robots/${robotId}/unassign/${projectId}`);
-		console.log('unassigned robot in thunk creator passed to action-->', unassignedRobot);
 		const action = unassignRobot(unassignedRobot);
 		dispatch(action);
 	} catch (error) {

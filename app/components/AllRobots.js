@@ -29,7 +29,14 @@ export class AllRobots extends React.Component {
 				</div>
 				{/*  check if robots is empty on state */}
 				{robots.length ? (
-					robots.map((robot) => <RobotCard key={robot.id} robot={robot} handleDelete={this.handleDelete} />)
+					robots.map((robot) => (
+						<RobotCard
+							key={robot.id}
+							robot={robot}
+							handleDelete={this.handleDelete}
+							displayUnassignBtn={false}
+						/>
+					))
 				) : (
 					<p>There are no robots registered in the database!</p>
 				)}

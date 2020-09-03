@@ -7,6 +7,7 @@ const GET_PROJECT = 'GET_PROJECT';
 const ADD_PROJECT = 'ADD_PROJECT';
 const DELETE_PROJECT = 'DELETE_PROJECT';
 const UPDATE_PROJECT = 'UPDATE_PROJECT';
+const UNASSIGN_PROJECT = 'UNASSIGN_PROJECT';
 
 // ACTION CREATORS ======================================
 
@@ -33,6 +34,11 @@ const deletedProject = (project) => ({
 const updatedProject = (updatedProject) => ({
 	type: UPDATE_PROJECT,
 	updatedProject
+});
+
+const unassignProject = (unassignedProject) => ({
+	type: UNASSIGN_PROJECT,
+	unassignedProject
 });
 
 // THUNK CREATORS =======================================
@@ -90,6 +96,16 @@ export const updateProjectInDb = (id, title) => async (dispatch) => {
 	}
 };
 
+export const unassignProjectInDb = (projectId, robotId) => async (dispatch) => {
+	try {
+		const { data: unassignedProject } = await axios.put(`/api/projects/${projectId}/unassign/${robotId}`);
+		const action = unassignProject(unassignedProject);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 // INITIAL STATE ========================================
 
 // projects: {
@@ -138,6 +154,11 @@ export default function projectsReducer(state = initialState, action) {
 			return {
 				...state,
 				project: action.updatedProject
+			};
+		case UNASSIGN_PROJECT:
+			return {
+				...state,
+				project: action.unassignedProject
 			};
 		default:
 			return state;

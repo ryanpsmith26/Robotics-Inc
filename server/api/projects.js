@@ -57,6 +57,21 @@ router.put('/:id', async (req, res, next) => {
 	}
 });
 
+// PUT /api/projects/:projectId/unassign/:robotId
+router.put('/:projectId/unassign/:robotId', async (req, res, next) => {
+	try {
+		const { robotId, projectId } = req.params;
+		const projectToUnassign = await Project.findByPk(projectId);
+		await projectToUnassign.removeRobot(robotId);
+		const projectIsUnassigned = await Project.findByPk(projectId, {
+			include: [ { model: Robot } ]
+		});
+		res.json(projectIsUnassigned);
+	} catch (error) {
+		next(error);
+	}
+});
+
 // DELETE /api/projects
 router.delete('/', async (req, res, next) => {
 	try {
