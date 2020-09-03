@@ -5,10 +5,8 @@
 
 body {
 	background: #fafafa;
-	/* height: 100vh; */
 	padding: 0;
 	margin: 0;
-	/* width: 100vw; */
 }
 
 a {
@@ -38,7 +36,7 @@ nav {
 	color: #fafafa;
 }
 
-/* caushing some issues downstream */
+/* causing some issues downstream which are overridden */
 a:hover,
 a:focus {
 	color: #c2c2c2;
@@ -47,11 +45,6 @@ a:focus {
 .NavActive {
 	padding-bottom: 4px;
 	border-bottom: 1px solid #fafafa;
-}
-
-/* unused? */
-ul {
-	list-style: none;
 }
 
 /* MAIN =============================================== */
@@ -104,6 +97,28 @@ main {
 	margin-left: 2em;
 }
 /* FEATURED PROJECT =================================== */
+
+/* ================================== */
+
+.EditLinkDiv {
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+.EditLink {
+	background-color: #49fc8b;
+	padding: 0.75em 2.25em;
+	color: #333333;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+
+.EditLink:hover,
+.EditLink:focus {
+	color: #333333;
+	background-color: #3ede79;
+}
 
 /* CARDS ============================================== */
 .Cards {
@@ -187,24 +202,69 @@ main {
 
 /* FORMS ============================================ */
 
-/* not in best location this is on single robots/projects */
-
-.EditLinkDiv {
-	margin-top: 3em;
-	margin-bottom: 3em;
+.FormDiv {
+	width: 100%;
+	border-bottom: 2px solid #757575;
+	margin-bottom: 2em;
 }
 
-.EditLink {
-	background-color: #49fc8b;
-	padding: 0.75em 2.25em;
+.FormDiv a {
+	font-size: 3rem;
 	color: #333333;
+}
+
+.FormDiv a:hover,
+.FormDiv a:focus {
+	color: #757575;
+}
+
+form {
+	width: 100%;
+	padding: 2em 0 3em;
+}
+
+form > * {
+	margin-bottom: 1.25rem;
+}
+
+form label {
+	display: block;
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+form input {
+	display: block;
+	border: 0.5px solid #757575;
+	padding: .75em;
+	margin: 0 auto 1.75rem;
 	border-radius: 5px;
-	font-weight: 700;
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 }
 
-.EditLink:hover,
-.EditLink:focus {
-	color: #333333;
-	background-color: #3ede79;
+form select {
+	display: block;
+	margin: 0 auto;
+	padding: 0.25em 2em;
+	border: 0.5px solid #757575;
+	border-radius: 5px;
+	margin-bottom: 1em;
+	font-size: 1.25rem;
+}
+
+form button {
+	display: block;
+	color: #fafafa;
+	background-color: #5ed4ff;
+	padding: 1em 2em;
+	margin: 0 auto;
+	border: none;
+	border-radius: 5px;
+	font-weight: 900;
+}
+
+form button:hover,
+form button:focus {
+	background-color: #00baff;
 }

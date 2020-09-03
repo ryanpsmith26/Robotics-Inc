@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addProjectToDb } from '../redux/projects';
 
 class NewProjectForm extends Component {
@@ -34,12 +35,21 @@ class NewProjectForm extends Component {
 	render() {
 		const { title } = this.state;
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>Title: </label>
-				<input type="text" placeholder="Enter Title" name="title" value={title} onChange={this.handleChange} />
-				<br />
-				<button type="submit">Add Project</button>
-			</form>
+			<div className="FormDiv">
+				<Link to="/projects">&times;</Link>
+				<form onSubmit={this.handleSubmit}>
+					<label>Project Title </label>
+					<input
+						type="text"
+						placeholder="Enter Title"
+						name="title"
+						value={title}
+						onChange={this.handleChange}
+					/>
+					<br />
+					<button type="submit">Add Project</button>
+				</form>
+			</div>
 		);
 	}
 }

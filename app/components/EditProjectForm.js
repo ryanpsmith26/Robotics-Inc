@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { updateProjectInDb } from '../redux/projects';
 
 class EditProjectForm extends Component {
@@ -36,11 +37,14 @@ class EditProjectForm extends Component {
 		console.log(this.state);
 
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>Project Name: </label>
-				<input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
-				<button type="submit">Save Changes</button>
-			</form>
+			<div className="FormDiv">
+				<Link to={`/projects/single_project/${this.id}`}>&times;</Link>
+				<form onSubmit={this.handleSubmit}>
+					<label>Project Name: </label>
+					<input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
+					<button type="submit">Save Changes</button>
+				</form>
+			</div>
 		);
 	}
 }

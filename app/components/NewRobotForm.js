@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addRobotToDb } from '../redux/robots';
 
 class NewRobotForm extends Component {
@@ -40,11 +41,13 @@ class NewRobotForm extends Component {
 	render() {
 		const { name, fuelType, fuelLevel, imageUrl } = this.state;
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>Name: </label>
-				<input type="text" placeholder="Enter Name" name="name" value={name} onChange={this.handleChange} />
-				<br />
-				{/* <label>Fuel Type: </label>
+			<div className="FormDiv">
+				<Link to="/robots">&times;</Link>
+				<form onSubmit={this.handleSubmit}>
+					<label>Robot Name</label>
+					<input type="text" placeholder="Enter Name" name="name" value={name} onChange={this.handleChange} />
+					{/* <br /> */}
+					{/* <label>Fuel Type: </label>
 				<input
 					type="text"
 					placeholder="electric, gas, diesel"
@@ -62,8 +65,9 @@ class NewRobotForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<br /> */}
-				<button type="submit">Add Robot</button>
-			</form>
+					<button type="submit">Add Robot</button>
+				</form>
+			</div>
 		);
 	}
 }
