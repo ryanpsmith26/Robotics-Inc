@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Robot, Project } = require('../db');
+const { default: Axios } = require('axios');
 
 // GET /api/robots
 router.get('/', async (req, res, next) => {
@@ -52,6 +53,21 @@ router.put('/:id', async (req, res, next) => {
 			include: [ { model: Project } ]
 		});
 		res.json(updatedRobot);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// PUT /api/robots/:robotId/unassign/:projectId
+router.put('/:robotId/unassign/:projectId', async (req, res, next) => {
+	try {
+		const { robotId, projectId } = req.params;
+		const robotToUnassign = await Robot.findByPk(robotId);
+		await robotToUnassign.removeProject(projectId);
+		const robotIsUnassigned = await Robot.findByPk(robotId, {
+			include: [ { model: Project } ]
+		});
+		res.json(robotIsUnassigned);
 	} catch (error) {
 		next(error);
 	}

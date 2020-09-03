@@ -30,7 +30,12 @@ export class AllProjects extends React.Component {
 				{/* check if projects is empty on state */}
 				{projects.length ? (
 					projects.map((project) => (
-						<ProjectCard key={project.id} project={project} handleDelete={this.handleDelete} />
+						<ProjectCard
+							key={project.id}
+							project={project}
+							handleDelete={this.handleDelete}
+							displayUnassignBtn={false}
+						/>
 					))
 				) : (
 					<p>There are no projects registered in the database.</p>

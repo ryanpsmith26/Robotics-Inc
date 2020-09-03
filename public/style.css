@@ -151,11 +151,28 @@ main {
 	color: #fafafa;
 	font-size: 2rem;
 	border-radius: 5px;
+	margin-left: 0.75em;
 }
 
 .CardDeleteBtn:hover,
 .CardDeleteBtn:focus {
 	background-color: #fa2f2f;
+}
+
+.CardUnassignBtn {
+	height: 30px;
+	padding: 0 1em;
+	border: none;
+	align-self: flex-end;
+	background-color: #5ed4ff;
+	color: #fafafa;
+	font-size: 1.125rem;
+	border-radius: 5px;
+}
+
+.CardUnassignBtn:hover,
+.CardUnassignBtn:focus {
+	background-color: #00baff;
 }
 
 /* repeating here with .MainHeader a */

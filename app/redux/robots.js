@@ -7,6 +7,7 @@ const GET_ROBOT = 'GET_ROBOT';
 const ADD_ROBOT = 'ADD_ROBOT';
 const DELETE_ROBOT = 'DELETE_ROBOT';
 const UPDATE_ROBOT = 'UPDATE_ROBOT';
+const UNASSIGN_ROBOT = 'UNASSIGN_ROBOT';
 
 // ACTION CREATORS ======================================
 
@@ -33,6 +34,11 @@ const deletedRobot = (robot) => ({
 const updatedRobot = (updatedRobot) => ({
 	type: UPDATE_ROBOT,
 	updatedRobot
+});
+
+const unassignRobot = (unassignedRobot) => ({
+	type: UNASSIGN_ROBOT,
+	unassignedRobot
 });
 
 // THUNK CREATORS =======================================
@@ -91,6 +97,17 @@ export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	}
 };
 
+export const unassignRobotInDb = (robotId, projectId) => async (dispatch) => {
+	try {
+		const { data: unassignedRobot } = await axios.put(`/api/robots/${robotId}/unassign/${projectId}`);
+		console.log('unassigned robot in thunk creator passed to action-->', unassignedRobot);
+		const action = unassignRobot(unassignedRobot);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 // INITIAL STATE ========================================
 
 // robots: {
@@ -139,6 +156,11 @@ export default function robotsReducer(state = initialState, action) {
 			return {
 				...state,
 				robot: action.updatedRobot
+			};
+		case UNASSIGN_ROBOT:
+			return {
+				...state,
+				robot: action.unassignedRobot
 			};
 		default:
 			return state;
