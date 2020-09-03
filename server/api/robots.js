@@ -1,26 +1,6 @@
 const router = require('express').Router();
 const { Robot, Project } = require('../db');
 
-// PUT /api/robots/:id
-router.put('/:id', async (req, res, next) => {
-	try {
-		await Robot.update(
-			{ name: req.body.name, fuelType: req.body.fuelType },
-			{
-				where: {
-					id: req.body.id
-				}
-			}
-		);
-		const updatedRobot = await Robot.findByPk(req.body.id, {
-			include: [ { model: Project } ]
-		});
-		res.json(updatedRobot);
-	} catch (error) {
-		next(error);
-	}
-});
-
 // GET /api/robots
 router.get('/', async (req, res, next) => {
 	try {
@@ -52,6 +32,26 @@ router.post('/', async (req, res, next) => {
 		const newRobotId = await Robot.max('id');
 		const newRobot = await Robot.findByPk(newRobotId);
 		res.json(newRobot);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// PUT /api/robots/:id
+router.put('/:id', async (req, res, next) => {
+	try {
+		await Robot.update(
+			{ name: req.body.name, fuelType: req.body.fuelType },
+			{
+				where: {
+					id: req.body.id
+				}
+			}
+		);
+		const updatedRobot = await Robot.findByPk(req.body.id, {
+			include: [ { model: Project } ]
+		});
+		res.json(updatedRobot);
 	} catch (error) {
 		next(error);
 	}

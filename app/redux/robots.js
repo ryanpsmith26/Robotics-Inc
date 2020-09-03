@@ -80,9 +80,9 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	try {
 		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
-			id: id,
-			name: name,
-			fuelType: fuelType
+			id,
+			name,
+			fuelType
 		});
 		const action = updatedRobot(updatedRobotFromDb);
 		dispatch(action);

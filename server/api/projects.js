@@ -40,15 +40,17 @@ router.post('/', async (req, res, next) => {
 // PUT /api/projects/:id
 router.put('/:id', async (req, res, next) => {
 	try {
-		const [ , [ updatedProject ] ] = await Project.update(
-			{ ...req.body },
+		await Project.update(
+			{ title: req.body.title },
 			{
 				where: {
 					id: req.body.id
-				},
-				returning: true
+				}
 			}
 		);
+		const updatedProject = await Project.findByPk(req.body.id, {
+			include: [ { model: Robot } ]
+		});
 		res.json(updatedProject);
 	} catch (error) {
 		next(error);

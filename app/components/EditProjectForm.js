@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateProjectInDb } from '../redux/projects';
 
 class EditProjectForm extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			title: ''
 		};
 
+		this.id = this.props.match.params.id;
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -22,7 +25,8 @@ class EditProjectForm extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.editProject();
+		const title = e.target.title.value;
+		this.props.updateProject(this.id, title);
 		this.setState({
 			title: ''
 		});
@@ -41,9 +45,12 @@ class EditProjectForm extends Component {
 	}
 }
 
-const mapState = (state) => {};
-const mapDispatch = (dispatch) => {};
+const mapState = (state) => ({
+	project: state.projects.project
+});
 
-// export default connect(mapState, mapDispatch)(EditRobotForm);
+const mapDispatch = (dispatch) => ({
+	updateProject: (id, title) => dispatch(updateProjectInDb(id, title))
+});
 
-export default EditProjectForm;
+export default connect(mapState, mapDispatch)(EditProjectForm);
