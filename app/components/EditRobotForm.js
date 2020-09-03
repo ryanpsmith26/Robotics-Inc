@@ -1,75 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRobots, updateRobotInDb } from '../redux/robots';
-
-// first get this rendering in SingleRobot view
-// then handleChange like normal
-// handleSubmit we can get working by just passing a new name for
-// routes will need to be modified
-// then add in the logic for fuelType after that's working
+import { updateRobotInDb } from '../redux/robots';
 
 class EditRobotForm extends Component {
 	constructor(props) {
 		super(props);
 
-		// set single robot obj on store state in SingleRobotObj to local state
-		// this lost on refresh from EditRobotForm, should consider refactoring this
-		this.robot = this.props.robot;
 		this.state = {
 			name: '',
 			fuelType: ''
-			// robotToUpdate: {
-			// 	name: '',
-			// 	fuelType: ''
-			// }
 		};
 
+		this.id = this.props.match.params.id;
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidMount() {
-		// may not need this:
-		// this.props.fetchRobots();
-
-		this.setState(
-			{
-				// robotToUpdate: this.robot
-			}
-		);
-	}
-
 	handleChange(e) {
 		const nameInputField = e.target.name;
-		const fuelTypeInputField = e.target.fuelType;
+		// const fuelTypeInputField = e.target.fuelType;
 		const userInput = e.target.value;
 		this.setState({
-			[nameInputField]: userInput,
-			robotToUpdate: {
-				...this.robot,
-				[nameInputField]: userInput,
-				[fuelTypeInputField]: userInput
-			}
+			[nameInputField]: userInput
 		});
 	}
 
-	// handleFuelTypeChange(e) {
-	// 	const inputField = e.target.fuelType;
-	// 	const userInput = e.target.value;
-	// 	this.setState({
-	// 		[inputField]: userInput,
-	// 		robotToUpdate: {
-	// 			...this.robot,
-	// 			[inputField]: userInput
-	// 		}
-	// 	});
-	// }
-
-	// note: project api route is functioning, no edits to store nor connecting up edit form.
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.updateRobot(this.state.robotToUpdate);
+		console.log('this.id in form----->', this.id);
+		// getting this working with just passing name down first
+		this.props.updateRobot(this.id, e.target.name.value);
 		this.setState({
 			name: '',
 			fuelType: ''
@@ -77,9 +38,6 @@ class EditRobotForm extends Component {
 	}
 
 	render() {
-		console.log('this.state from EditRobotForm---->', this.state);
-		console.log('this.props from EditRobotForm---->', this.props);
-
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>Robot Name: </label>
@@ -100,14 +58,11 @@ class EditRobotForm extends Component {
 }
 
 const mapState = (state) => ({
-	// bring in single robot obj set on state in SingleRobotObj
-	robots: state.robots.allRobots,
 	robot: state.robots.robot
 });
 
 const mapDispatch = (dispatch) => ({
-	// fetchRobots: () => dispatch(fetchRobots()),
-	updateRobot: (robot) => dispatch(updateRobotInDb(robot))
+	updateRobot: (id, name) => dispatch(updateRobotInDb(id, name))
 });
 
 export default connect(mapState, mapDispatch)(EditRobotForm);

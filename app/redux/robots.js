@@ -30,9 +30,9 @@ const deletedRobot = (robot) => ({
 	robot
 });
 
-const updatedRobot = (robot) => ({
+const updatedRobot = (updatedRobot) => ({
 	type: UPDATE_ROBOT,
-	robot
+	updatedRobot
 });
 
 // THUNK CREATORS =======================================
@@ -77,11 +77,13 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 	}
 };
 
-// going add updatedRobot to state, then in reducer set robot to updatedRobot for rendering
-export const updateRobotInDb = (robot) => async (dispatch) => {
+export const updateRobotInDb = (id, name) => async (dispatch) => {
 	try {
-		console.log('robot passed into thunk creator---->', robot);
-		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${robot.id}`, robot);
+		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
+			id: id,
+			name: name
+		});
+		console.log('updated robot back from DB inside thunk---', updatedRobotFromDb);
 		const action = updatedRobot(updatedRobotFromDb);
 		dispatch(action);
 	} catch (error) {
@@ -136,7 +138,7 @@ export default function robotsReducer(state = initialState, action) {
 		case UPDATE_ROBOT:
 			return {
 				...state,
-				allRobots: [ ...state.allRobots.filter((robot) => robot.id !== action.robot.id), action.robot ]
+				robot: action.updatedRobot
 			};
 		default:
 			return state;

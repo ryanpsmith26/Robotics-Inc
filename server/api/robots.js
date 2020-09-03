@@ -4,16 +4,17 @@ const { Robot, Project } = require('../db');
 // PUT /api/robots/:id
 router.put('/:id', async (req, res, next) => {
 	try {
-		console.log('req.body from PUT route----->', req.body);
-		const [ , [ updatedRobot ] ] = await Robot.update(
-			{ ...req.body },
+		await Robot.update(
+			{ name: req.body.name },
 			{
 				where: {
 					id: req.body.id
-				},
-				returning: true
+				}
 			}
 		);
+		const updatedRobot = await Robot.findByPk(req.body.id, {
+			include: [ { model: Project } ]
+		});
 		res.json(updatedRobot);
 	} catch (error) {
 		next(error);
