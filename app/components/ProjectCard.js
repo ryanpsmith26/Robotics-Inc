@@ -25,6 +25,7 @@ const ProjectCard = (props) => {
 					</p>
 				</Link>
 			</div>
+			{/* only display unassign button in the single robot view */}
 			{displayUnassignBtn ? (
 				<button
 					type="button"
@@ -36,7 +37,15 @@ const ProjectCard = (props) => {
 			) : (
 				''
 			)}
-			<button type="button" className="CardDeleteBtn" onClick={() => handleDelete(project)}>
+			<button
+				type="button"
+				className="CardDeleteBtn"
+				onClick={() =>
+					// eslint-disable-next-line no-alert
+					window.confirm(
+						'This action will permanently delete the project in the database. Are you sure you want to continue?'
+					) && handleDelete(project)}
+			>
 				&times;
 			</button>
 		</div>

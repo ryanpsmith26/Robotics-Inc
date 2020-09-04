@@ -35,7 +35,15 @@ const RobotCard = (props) => {
 			) : (
 				''
 			)}
-			<button type="button" className="CardDeleteBtn" onClick={() => handleDelete(robot)}>
+			<button
+				type="button"
+				className="CardDeleteBtn"
+				onClick={() =>
+					// eslint-disable-next-line no-alert
+					window.confirm(
+						`This action will permanently delete ${robot.name} in the database. Are you sure you want to continue?`
+					) && handleDelete(robot)}
+			>
 				&times;
 			</button>
 		</div>

@@ -165,8 +165,7 @@ main {
 /* GREEN EDIT BUTTON ========== */
 
 .EditLinkDiv {
-	margin-top: 3em;
-	margin-bottom: 3em;
+	margin: 2.5em 0;
 }
 
 .EditLink {
@@ -349,7 +348,7 @@ form button:focus {
 	background-color: #00baff;
 }
 
-/* SINGLE PROJECT FLEXBOX FOR SMALL SCREENS */
+/* SINGLE PROJECT FLEX FOR SMALL SCREENS */
 @media (max-width: 580px) {
 	.FeaturedProjectDiv {
 		flex-direction: column;
@@ -360,6 +359,17 @@ form button:focus {
 		order: 1;
 		width: 90%;
 		margin: 0 auto 2em;
+	}
+
+	.EditAndToggleBtnsFlex {
+		display: flex;
+		justify-content: space-between;
+		max-width: 275px;
+	}
+
+	.ToggleProjectStatusBtn {
+		max-height: 35px;
+		align-self: center;
 	}
 }
 

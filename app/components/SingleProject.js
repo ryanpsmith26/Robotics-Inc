@@ -51,12 +51,12 @@ export class SingleProject extends React.Component {
 							<strong>Priority: </strong>
 							{project.priority}
 						</p>
-						<div className="EditLinkDiv">
-							<Link to={`/projects/single_project/${project.id}/forms/edit`} className="EditLink">
-								Edit
-							</Link>
-						</div>
-						<div>
+						<div className="EditAndToggleBtnsFlex">
+							<div className="EditLinkDiv">
+								<Link to={`/projects/single_project/${project.id}/forms/edit`} className="EditLink">
+									Edit
+								</Link>
+							</div>
 							<button
 								type="button"
 								className="ToggleProjectStatusBtn"
