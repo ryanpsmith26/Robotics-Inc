@@ -122,15 +122,16 @@ main {
 .FeaturedProjectDesc {
 	order: -1;
 	width: 50%;
-	margin-right: 2em;
-	padding: 1em;
+	margin-right: 3em;
+	padding: 1em 2em;
 	background: #f0f0f0;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
 		0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
 }
 
 .FeaturedProjectContent {
-	margin-right: 3em;
+	/* margin-right: 3em; */
+	align-self: flex-start;
 }
 
 /* GREEN EDIT BUTTON ========== */
@@ -321,7 +322,7 @@ form button:focus {
 }
 
 /* SINGLE PROJECT FLEXBOX FOR SMALL SCREENS */
-@media (max-width: 550px) {
+@media (max-width: 580px) {
 	.FeaturedProjectDiv {
 		flex-direction: column;
 		align-items: center;

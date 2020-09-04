@@ -160,11 +160,11 @@ Congrats! You have completed your fifth vertical slice! Make sure to `commit -m 
 
 #### Finishing Touches
 
-- [ ] If a user attempts to add a new robot or project without a required field, a helpful message should be displayed
+- [x] If a user attempts to add a new robot or project without a required field, a helpful message should be displayed
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/potato`), a helpful "not found" message should be displayed
 - [ ] If a user attempts to view a robot/project that doesn't exist, a helpful message should be displayed
 - [ ] Whenever a component needs to wait for data to load from the server, a "loading" message should be displayed until the data is available
-- [ ] Overall, the app is spectacularly styled and visually stunning
+- [x!?] Overall, the app is spectacularly styled and visually stunning
 
 #### Ordering
 
@@ -181,7 +181,7 @@ Congrats! You have completed your fifth vertical slice! Make sure to `commit -m 
 
 #### Seeding
 
-- [ ] Seed 100+ robots and 100+ projects
+- [x] Seed 100+ robots and 100+ projects
 - [ ] Implement pagination for robots (e.g. `/robots?page=1` shows the first ten robots, and `/robots?page=2` shows robots 11-20)
 - [ ] Implement pagination for projects (e.g. `/projects?page=1` shows the first ten projects, and `/projects?page=2` shows robots 11-20)
 

@@ -41,7 +41,7 @@ class EditProjectForm extends Component {
 				<Link to={`/projects/single_project/${this.id}`}>&times;</Link>
 				<form onSubmit={this.handleSubmit}>
 					<label>Project Name: </label>
-					<input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
+					<input type="text" name="title" onChange={this.handleChange} value={this.state.title} required />
 					<button type="submit">Save Changes</button>
 				</form>
 			</div>

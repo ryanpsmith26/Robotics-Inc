@@ -1,7 +1,7 @@
 const { green, red } = require('chalk');
 const { db, Project, Robot } = require('./server/db');
 
-const robots = [
+const starterRobots = [
 	{
 		name: 'Spot',
 		imageUrl: 'https://roboticsandautomationnews.com/wp-content/uploads/2020/06/boston-dynamics-spot-2.jpg'
@@ -15,7 +15,7 @@ const robots = [
 	}
 ];
 
-const projects = [
+const starterProjects = [
 	{
 		title: 'Halloween Costume Generator',
 		deadline: new Date(2020, 9, 31),
@@ -39,15 +39,39 @@ const projects = [
 	}
 ];
 
+const bulkCreateRobots = (robots) => {
+	for (let i = 0; i < 100; i++) {
+		robots.push({ name: 'Generic John' });
+	}
+	return robots;
+};
+
+const oneHundredAndThreeRobots = bulkCreateRobots(starterRobots);
+
+const bulkCreateProjects = (projects) => {
+	for (let i = 0; i < 100; i++) {
+		projects.push({
+			title: 'A Cog In The Wheel',
+			priority: 0,
+			deadline: new Date(3000, 0, 1),
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+		});
+	}
+	return projects;
+};
+
+const oneHundredAndThreeProjects = bulkCreateProjects(starterProjects);
+
 const seed = async () => {
 	try {
 		await db.sync({ force: true });
 
 		await Promise.all([
-			...robots.map((robot) => {
+			...oneHundredAndThreeRobots.map((robot) => {
 				return Robot.create(robot);
 			}),
-			...projects.map((project) => {
+			...oneHundredAndThreeProjects.map((project) => {
 				return Project.create(project);
 			})
 		]);

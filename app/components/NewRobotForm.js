@@ -45,7 +45,14 @@ class NewRobotForm extends Component {
 				<Link to="/robots">&times;</Link>
 				<form onSubmit={this.handleSubmit}>
 					<label>Robot Name</label>
-					<input type="text" placeholder="Enter Name" name="name" value={name} onChange={this.handleChange} />
+					<input
+						type="text"
+						placeholder="Enter Name"
+						name="name"
+						value={name}
+						onChange={this.handleChange}
+						required
+					/>
 					{/* <br /> */}
 					{/* <label>Fuel Type: </label>
 				<input

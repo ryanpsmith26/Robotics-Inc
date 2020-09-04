@@ -45,6 +45,7 @@ class NewProjectForm extends Component {
 						name="title"
 						value={title}
 						onChange={this.handleChange}
+						required
 					/>
 					<br />
 					<button className="AddNewBtn" type="submit">
