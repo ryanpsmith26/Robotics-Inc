@@ -8,6 +8,7 @@ const ADD_ROBOT = 'ADD_ROBOT';
 const DELETE_ROBOT = 'DELETE_ROBOT';
 const UPDATE_ROBOT = 'UPDATE_ROBOT';
 const UNASSIGN_ROBOT = 'UNASSIGN_ROBOT';
+const LOADING = 'LOADING';
 
 // ACTION CREATORS ======================================
 
@@ -41,10 +42,15 @@ const unassignRobot = (unassignedRobot) => ({
 	unassignedRobot
 });
 
+const loading = () => ({
+	type: LOADING
+});
+
 // THUNK CREATORS =======================================
 
 export const fetchRobots = () => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: robots } = await axios.get('/api/robots');
 		const action = gotAllRobots(robots);
 		dispatch(action);
@@ -122,17 +128,24 @@ const initialState = {
 	robot: {
 		Projects: []
 	},
-	newRobot: {}
+	newRobot: {},
+	loading: false
 };
 
 // ROBOTS SUBREDUCER ===========================================
 
 export default function robotsReducer(state = initialState, action) {
 	switch (action.type) {
+		case LOADING:
+			return {
+				...state,
+				loading: true
+			};
 		case GET_ALL_ROBOTS:
 			return {
 				...state,
-				allRobots: action.robots
+				allRobots: action.robots,
+				loading: false
 			};
 		case GET_ROBOT:
 			return {

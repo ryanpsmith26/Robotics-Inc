@@ -9,16 +9,10 @@ export class AllRobots extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleDelete = this.handleDelete.bind(this);
-		this.state = {
-			loading: false
-		};
 	}
 
-	async componentDidMount() {
-		// refactor loading to store??
-		this.setState({ loading: true });
-		await this.props.fetchRobots();
-		this.setState({ loading: false });
+	componentDidMount() {
+		this.props.fetchRobots();
 	}
 
 	handleDelete(robot) {
@@ -26,7 +20,7 @@ export class AllRobots extends React.Component {
 	}
 
 	render() {
-		const { robots } = this.props;
+		const { robots, loading } = this.props;
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
@@ -35,7 +29,7 @@ export class AllRobots extends React.Component {
 				</div>
 				<div className="Cards">
 					{/*  first check if loading is complete, when complete, check if robots is empty on state, finally if neither, render RobotCards */}
-					{this.state.loading ? (
+					{loading ? (
 						<div className="LoadingMessage">Loading...</div>
 					) : robots.length ? (
 						robots.map((robot) => (
@@ -56,7 +50,8 @@ export class AllRobots extends React.Component {
 }
 
 const mapState = (state) => ({
-	robots: state.robots.allRobots
+	robots: state.robots.allRobots,
+	loading: state.robots.loading
 });
 
 const mapDispatch = (dispatch) => ({
