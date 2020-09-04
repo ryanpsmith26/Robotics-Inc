@@ -41,7 +41,7 @@ const starterProjects = [
 
 const bulkCreateRobots = (robots) => {
 	for (let i = 0; i < 100; i++) {
-		robots.push({ name: 'Generic John' });
+		robots.push({ name: 'Generic Gerry' });
 	}
 	return robots;
 };

@@ -22,6 +22,10 @@ a {
 	margin: 1em 0 2em;
 }
 
+.LoadingMessage {
+	font-size: 3rem;
+}
+
 /* NAVIGATION ========================================= */
 
 nav {

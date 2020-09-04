@@ -9,10 +9,16 @@ export class AllRobots extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleDelete = this.handleDelete.bind(this);
+		this.state = {
+			loading: false
+		};
 	}
 
-	componentDidMount() {
-		this.props.fetchRobots();
+	async componentDidMount() {
+		// refactor loading to store??
+		this.setState({ loading: true });
+		await this.props.fetchRobots();
+		this.setState({ loading: false });
 	}
 
 	handleDelete(robot) {
@@ -28,8 +34,10 @@ export class AllRobots extends React.Component {
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
 				<div className="Cards">
-					{/*  check if robots is empty on state */}
-					{robots.length ? (
+					{/*  first check if loading is complete, when complete, check if robots is empty on state, finally if neither, render RobotCards */}
+					{this.state.loading ? (
+						<div className="LoadingMessage">Loading...</div>
+					) : robots.length ? (
 						robots.map((robot) => (
 							<RobotCard
 								key={robot.id}
