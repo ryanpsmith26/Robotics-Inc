@@ -9,18 +9,13 @@ body {
 	margin: 0;
 }
 
-.Container {
-	width: 90%;
-	margin: 0 auto;
-}
-
 a {
 	text-decoration: none;
 }
 
-img {
-	/* max-width: 100%; */
-	/* display: block; */
+.Container {
+	width: 90%;
+	margin: 0 auto;
 }
 
 .HomeHeader {
@@ -52,7 +47,6 @@ nav {
 	color: #fafafa;
 }
 
-/* causing some issues downstream which are overridden */
 a:hover,
 a:focus {
 	color: #c2c2c2;
@@ -118,6 +112,7 @@ main {
 
 .FeaturedProjectDiv {
 	display: flex;
+	justify-content: space-between;
 	font-size: 1.25rem;
 	margin: 2em 0 2em;
 	padding-bottom: 3em;
@@ -135,6 +130,7 @@ main {
 }
 
 .FeaturedProjectContent {
+	margin-right: 3em;
 }
 
 /* GREEN EDIT BUTTON ========== */
@@ -239,7 +235,6 @@ main {
 	background-color: #00baff;
 }
 
-/* repeating here with .MainHeader a */
 .Card a {
 	color: #333333;
 }
@@ -325,9 +320,28 @@ form button:focus {
 	background-color: #00baff;
 }
 
+/* SINGLE PROJECT FLEXBOX FOR SMALL SCREENS */
+@media (max-width: 550px) {
+	.FeaturedProjectDiv {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.FeaturedProjectDesc {
+		order: 1;
+		width: 90%;
+		margin: 0 auto 2em;
+	}
+}
+
+/* CONTAINER CONTROL FOR LARGE SCREENS */
 @media (min-width: 650px) {
 	.Container {
 		width: 80%;
 		max-width: 800px;
 	}
+
+	/* .Cards {
+		flex-direction: row;
+	} */
 }

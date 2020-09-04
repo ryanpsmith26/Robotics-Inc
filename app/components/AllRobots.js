@@ -27,19 +27,21 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
-				{/*  check if robots is empty on state */}
-				{robots.length ? (
-					robots.map((robot) => (
-						<RobotCard
-							key={robot.id}
-							robot={robot}
-							handleDelete={this.handleDelete}
-							displayUnassignBtn={false}
-						/>
-					))
-				) : (
-					<p>There are no robots registered in the database!</p>
-				)}
+				<div className="Cards">
+					{/*  check if robots is empty on state */}
+					{robots.length ? (
+						robots.map((robot) => (
+							<RobotCard
+								key={robot.id}
+								robot={robot}
+								handleDelete={this.handleDelete}
+								displayUnassignBtn={false}
+							/>
+						))
+					) : (
+						<p>There are no robots registered in the database!</p>
+					)}
+				</div>
 			</React.Fragment>
 		);
 	}

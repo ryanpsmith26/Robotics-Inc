@@ -27,19 +27,21 @@ export class AllProjects extends React.Component {
 					<h1>All Projects</h1>
 					<Link to="/projects/forms/add">Add Project</Link>
 				</div>
-				{/* check if projects is empty on state */}
-				{projects.length ? (
-					projects.map((project) => (
-						<ProjectCard
-							key={project.id}
-							project={project}
-							handleDelete={this.handleDelete}
-							displayUnassignBtn={false}
-						/>
-					))
-				) : (
-					<p>There are no projects registered in the database.</p>
-				)}
+				<div className="Cards">
+					{/* check if projects is empty on state */}
+					{projects.length ? (
+						projects.map((project) => (
+							<ProjectCard
+								key={project.id}
+								project={project}
+								handleDelete={this.handleDelete}
+								displayUnassignBtn={false}
+							/>
+						))
+					) : (
+						<p>There are no projects registered in the database.</p>
+					)}
+				</div>
 			</React.Fragment>
 		);
 	}
