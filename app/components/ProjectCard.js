@@ -13,7 +13,7 @@ const ProjectCard = (props) => {
 				<Link to={`/projects/single_project/${project.id}`}>
 					<p>
 						<strong>Status: </strong>
-						{project.completed ? 'Complete' : 'Open'}
+						{project.completed ? 'Complete' : 'Active'}
 					</p>
 					<p>
 						<strong>Deadline: </strong>

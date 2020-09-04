@@ -28,7 +28,7 @@ export class AllProjects extends React.Component {
 					<Link to="/projects/forms/add">Add Project</Link>
 				</div>
 				<div className="Cards">
-					{/* first check if loading is complete, when complete, check if projects is empty on state, finally if neither, render ProjectCards */}
+					{/* first check if loading is complete, when complete, check if projects is empty on state, finally if neither, render ProjectCards, etc. */}
 					{loading ? (
 						<div className="LoadingMessage">Loading...</div>
 					) : projects.length ? (

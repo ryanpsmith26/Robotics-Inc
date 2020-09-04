@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import RobotCard from './RobotCard';
 import { fetchRobots, deleteRobotFromDb } from '../redux/robots';
-import { fetchProject, unassignProjectInDb } from '../redux/projects';
+import { fetchProject, unassignProjectInDb, toggleProjectStatusInDb } from '../redux/projects';
 
 export class SingleProject extends React.Component {
 	constructor(props) {
@@ -28,7 +28,7 @@ export class SingleProject extends React.Component {
 	}
 
 	render() {
-		const { project, robots, loading } = this.props;
+		const { project, robots, loading, toggleStatus } = this.props;
 
 		// creating filtered robots array to pass into RobotCard component to render on robots on this project:
 		const mappedProjectIds = project.Robots.map((robotProject) => robotProject.id);
@@ -41,7 +41,7 @@ export class SingleProject extends React.Component {
 						<h2>{project.title}</h2>
 						<p>
 							<strong>Status: </strong>
-							{project.completed ? 'Complete' : 'Open'}
+							{project.completed ? 'Complete' : 'Active'}
 						</p>
 						<p>
 							<strong>Deadline: </strong>
@@ -56,13 +56,22 @@ export class SingleProject extends React.Component {
 								Edit
 							</Link>
 						</div>
+						<div>
+							<button
+								type="button"
+								className="ToggleProjectStatusBtn"
+								onClick={() => toggleStatus(project.id)}
+							>
+								{project.completed ? 'Mark Incomplete' : 'Mark Complete'}
+							</button>
+						</div>
 					</div>
 					<div className="FeaturedProjectDesc">
 						<p>{project.description}</p>
 					</div>
 				</div>
 				<h2>Robots assigned to this project</h2>
-				{/* check if project has any robots */}
+				{/* first check if loading is complete, when complete, check if projects for this robot is empty on state, finally if neither, render it's assigned projects, etc. */}
 				{loading ? (
 					<div className="LoadingMessage">Loading...</div>
 				) : filteredRobots.length ? (
@@ -97,7 +106,8 @@ const mapDispatch = (dispatch) => {
 		fetchProject: (id) => dispatch(fetchProject(id)),
 		fetchRobots: () => dispatch(fetchRobots()),
 		deleteRobot: (robot) => dispatch(deleteRobotFromDb(robot)),
-		unassignProject: (projectId, robotId) => dispatch(unassignProjectInDb(projectId, robotId))
+		unassignProject: (projectId, robotId) => dispatch(unassignProjectInDb(projectId, robotId)),
+		toggleStatus: (id) => dispatch(toggleProjectStatusInDb(id))
 	};
 };
 

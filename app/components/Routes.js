@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 import Home from './Home';
 import NotFoundPage from './NotFoundPage';
@@ -34,8 +34,6 @@ const Routes = () => {
 					</div>
 				</nav>
 				<main className="Container">
-					<Route exact path="/" component={Home} />
-
 					<Route path="/robots/forms/add" component={NewRobotForm} />
 					<Route path="/robots/single_robot/:id/forms/edit" component={EditRobotForm} />
 
@@ -45,11 +43,13 @@ const Routes = () => {
 					<Switch>
 						<Route path="/robots/single_robot/:id" component={SingleRobot} />
 						<Route path="/robots" component={AllRobots} />
+
 						<Route path="/projects/single_project/:id" component={SingleProject} />
 						<Route path="/projects" component={AllProjects} />
-						{/* redirect is not all-inclusive as configured: */}
+
+						<Route exact path="/" component={Home} />
+						{/* redirects all paths that do not being with "/", "/robots" or "/projects" */}
 						<Route path="*" component={NotFoundPage} />
-						<Redirect to="/404" />
 					</Switch>
 				</main>
 			</div>

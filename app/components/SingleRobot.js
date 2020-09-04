@@ -56,7 +56,7 @@ export class SingleRobot extends React.Component {
 					</div>
 				</div>
 				<h2>Projects assigned to {robot.name}</h2>
-				{/* first check if loading is complete, when complete, check if projects for this robot is empty on state, finally if neither, render it's assigned projects  */}
+				{/* first check if loading is complete, when complete, check if projects for this robot is empty on state, finally if neither, render it's assigned projects, etc.  */}
 				{loading ? (
 					<div className="LoadingMessage">Loading...</div>
 				) : filteredProjects.length ? (

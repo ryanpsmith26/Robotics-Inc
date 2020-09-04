@@ -31,7 +31,7 @@ const starterProjects = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 	},
 	{
-		title: 'New Years Resolutions',
+		title: 'Automate Away Your New Years Resolutions',
 		deadline: new Date(2021, 0, 1),
 		priority: 3,
 		description:
@@ -41,7 +41,7 @@ const starterProjects = [
 
 const bulkCreateRobots = (robots) => {
 	for (let i = 0; i < 100; i++) {
-		robots.push({ name: 'Generic Gerry' });
+		robots.push({ name: 'Mr. Jetson' });
 	}
 	return robots;
 };
@@ -51,7 +51,7 @@ const oneHundredAndThreeRobots = bulkCreateRobots(starterRobots);
 const bulkCreateProjects = (projects) => {
 	for (let i = 0; i < 100; i++) {
 		projects.push({
-			title: 'A Cog In The Wheel',
+			title: 'A Robotic Cog In The Wheel',
 			priority: 0,
 			deadline: new Date(3000, 0, 1),
 			description:

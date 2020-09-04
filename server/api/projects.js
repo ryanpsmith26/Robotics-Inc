@@ -41,6 +41,7 @@ router.post('/', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
 	try {
 		await Project.update(
+			// refactor to utilize params instead of sending back the whole project to lighten the req load and simplify:
 			{ title: req.body.title },
 			{
 				where: {
@@ -49,6 +50,27 @@ router.put('/:id', async (req, res, next) => {
 			}
 		);
 		const updatedProject = await Project.findByPk(req.body.id, {
+			include: [ { model: Robot } ]
+		});
+		res.json(updatedProject);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// PUT /api/projects/:id/completed
+router.put('/:id/completed', async (req, res, next) => {
+	try {
+		const project = await Project.findByPk(req.params.id);
+		const currentStatus = project.completed;
+
+		await Project.update(
+			{ completed: !currentStatus },
+			{
+				where: { id: req.params.id }
+			}
+		);
+		const updatedProject = await Project.findByPk(req.params.id, {
 			include: [ { model: Robot } ]
 		});
 		res.json(updatedProject);

@@ -8,6 +8,7 @@ const ADD_PROJECT = 'ADD_PROJECT';
 const DELETE_PROJECT = 'DELETE_PROJECT';
 const UPDATE_PROJECT = 'UPDATE_PROJECT';
 const UNASSIGN_PROJECT = 'UNASSIGN_PROJECT';
+const TOGGLE_STATUS = 'TOGGLE_STATUS';
 const LOADING = 'LOADING';
 
 // ACTION CREATORS ======================================
@@ -40,6 +41,11 @@ const updatedProject = (updatedProject) => ({
 const unassignProject = (unassignedProject) => ({
 	type: UNASSIGN_PROJECT,
 	unassignedProject
+});
+
+const toggledStatus = (toggledProject) => ({
+	type: TOGGLE_STATUS,
+	toggledProject
 });
 
 const loading = () => ({
@@ -115,6 +121,16 @@ export const unassignProjectInDb = (projectId, robotId) => async (dispatch) => {
 	}
 };
 
+export const toggleProjectStatusInDb = (id) => async (dispatch) => {
+	try {
+		const { data: toggledProject } = await axios.put(`/api/projects/${id}/completed`);
+		const action = toggledStatus(toggledProject);
+		dispatch(action);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 // INITIAL STATE ========================================
 
 // projects: {
@@ -137,6 +153,7 @@ const initialState = {
 
 // PROJECTS SUBREDUCER ===========================================
 
+// eslint-disable-next-line complexity
 export default function projectsReducer(state = initialState, action) {
 	switch (action.type) {
 		case LOADING:
@@ -179,6 +196,11 @@ export default function projectsReducer(state = initialState, action) {
 			return {
 				...state,
 				project: action.unassignedProject
+			};
+		case TOGGLE_STATUS:
+			return {
+				...state,
+				project: action.toggledProject
 			};
 		default:
 			return state;

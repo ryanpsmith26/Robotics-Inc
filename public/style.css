@@ -147,6 +147,21 @@ main {
 	align-self: flex-start;
 }
 
+.ToggleProjectStatusBtn {
+	border: none;
+	background-color: #f3ff57;
+	padding: 1em 2.25em;
+	color: #333333;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+
+.ToggleProjectStatusBtn:hover,
+.ToggleProjectStatusBtn:focus {
+	color: #333333;
+	background-color: #dbe64c;
+}
 /* GREEN EDIT BUTTON ========== */
 
 .EditLinkDiv {
