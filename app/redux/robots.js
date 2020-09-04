@@ -61,6 +61,7 @@ export const fetchRobots = () => async (dispatch) => {
 
 export const fetchRobot = (robotId) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: robot } = await axios.get(`/api/robots/${robotId}`);
 		const action = gotRobot(robot);
 		dispatch(action);
@@ -71,6 +72,7 @@ export const fetchRobot = (robotId) => async (dispatch) => {
 
 export const addRobotToDb = (newRobot) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: newRobotFromDb } = await axios.post('/api/robots', newRobot);
 		const action = addedRobot(newRobotFromDb);
 		dispatch(action);
@@ -91,6 +93,7 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 
 export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
 			id,
 			name,
@@ -120,7 +123,8 @@ export const unassignRobotInDb = (robotId, projectId) => async (dispatch) => {
 //   robot: {
 //     Projects: []
 //   },
-//	 newRobot: {}
+//	 newRobot: {},
+//   loading: false
 // }
 
 const initialState = {
@@ -150,13 +154,15 @@ export default function robotsReducer(state = initialState, action) {
 		case GET_ROBOT:
 			return {
 				...state,
-				robot: action.robot
+				robot: action.robot,
+				loading: false
 			};
 		case ADD_ROBOT:
 			return {
 				...state,
 				allRobots: [ ...state.allRobots, action.newRobot ],
-				newRobot: action.newRobot
+				newRobot: action.newRobot,
+				loading: false
 			};
 		case DELETE_ROBOT:
 			return {
@@ -167,7 +173,8 @@ export default function robotsReducer(state = initialState, action) {
 		case UPDATE_ROBOT:
 			return {
 				...state,
-				robot: action.updatedRobot
+				robot: action.updatedRobot,
+				loading: false
 			};
 		case UNASSIGN_ROBOT:
 			return {

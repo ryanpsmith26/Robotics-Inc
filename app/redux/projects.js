@@ -8,6 +8,7 @@ const ADD_PROJECT = 'ADD_PROJECT';
 const DELETE_PROJECT = 'DELETE_PROJECT';
 const UPDATE_PROJECT = 'UPDATE_PROJECT';
 const UNASSIGN_PROJECT = 'UNASSIGN_PROJECT';
+const LOADING = 'LOADING';
 
 // ACTION CREATORS ======================================
 
@@ -41,10 +42,15 @@ const unassignProject = (unassignedProject) => ({
 	unassignedProject
 });
 
+const loading = () => ({
+	type: LOADING
+});
+
 // THUNK CREATORS =======================================
 
 export const fetchProjects = () => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: projects } = await axios.get('/api/projects');
 		const action = gotAllProjects(projects);
 		dispatch(action);
@@ -55,6 +61,7 @@ export const fetchProjects = () => async (dispatch) => {
 
 export const fetchProject = (projectId) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: project } = await axios.get(`/api/projects/${projectId}`);
 		const action = gotProject(project);
 		dispatch(action);
@@ -65,6 +72,7 @@ export const fetchProject = (projectId) => async (dispatch) => {
 
 export const addProjectToDb = (newProject) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: newProjectFromDb } = await axios.post('/api/projects', newProject);
 		const action = addedProject(newProjectFromDb);
 		dispatch(action);
@@ -85,6 +93,7 @@ export const deleteProjectFromDb = (project) => async (dispatch) => {
 
 export const updateProjectInDb = (id, title) => async (dispatch) => {
 	try {
+		dispatch(loading());
 		const { data: updatedRobotFromDb } = await axios.put(`/api/projects/${id}`, {
 			id,
 			title
@@ -113,7 +122,8 @@ export const unassignProjectInDb = (projectId, robotId) => async (dispatch) => {
 //   project: {
 //     Robots: []
 //   },
-//   newProject: ''
+//   newProject: '',
+//   loading: false
 // }
 
 const initialState = {
@@ -121,28 +131,37 @@ const initialState = {
 	project: {
 		Robots: []
 	},
-	newProject: ''
+	newProject: '',
+	loading: false
 };
 
 // PROJECTS SUBREDUCER ===========================================
 
 export default function projectsReducer(state = initialState, action) {
 	switch (action.type) {
+		case LOADING:
+			return {
+				...state,
+				loading: true
+			};
 		case GET_ALL_PROJECTS:
 			return {
 				...state,
-				allProjects: action.projects
+				allProjects: action.projects,
+				loading: false
 			};
 		case GET_PROJECT:
 			return {
 				...state,
-				project: action.project
+				project: action.project,
+				loading: false
 			};
 		case ADD_PROJECT:
 			return {
 				...state,
 				allProjects: [ ...state.allProjects, action.newProject ],
-				newProject: action.newProject
+				newProject: action.newProject,
+				loading: false
 			};
 		case DELETE_PROJECT:
 			return {
@@ -153,7 +172,8 @@ export default function projectsReducer(state = initialState, action) {
 		case UPDATE_PROJECT:
 			return {
 				...state,
-				project: action.updatedProject
+				project: action.updatedProject,
+				loading: false
 			};
 		case UNASSIGN_PROJECT:
 			return {

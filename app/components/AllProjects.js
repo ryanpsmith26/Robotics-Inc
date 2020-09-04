@@ -20,7 +20,7 @@ export class AllProjects extends React.Component {
 	}
 
 	render() {
-		const { projects } = this.props;
+		const { projects, loading } = this.props;
 		return (
 			<React.Fragment>
 				<div className="MainHeader">
@@ -28,8 +28,10 @@ export class AllProjects extends React.Component {
 					<Link to="/projects/forms/add">Add Project</Link>
 				</div>
 				<div className="Cards">
-					{/* check if projects is empty on state */}
-					{projects.length ? (
+					{/* first check if loading is complete, when complete, check if projects is empty on state, finally if neither, render ProjectCards */}
+					{loading ? (
+						<div className="LoadingMessage">Loading...</div>
+					) : projects.length ? (
 						projects.map((project) => (
 							<ProjectCard
 								key={project.id}
@@ -48,7 +50,8 @@ export class AllProjects extends React.Component {
 }
 
 const mapState = (state) => ({
-	projects: state.projects.allProjects
+	projects: state.projects.allProjects,
+	loading: state.projects.loading
 });
 
 const mapDispatch = (dispatch) => ({

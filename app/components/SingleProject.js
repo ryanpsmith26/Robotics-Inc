@@ -28,7 +28,7 @@ export class SingleProject extends React.Component {
 	}
 
 	render() {
-		const { project, robots } = this.props;
+		const { project, robots, loading } = this.props;
 
 		// creating filtered robots array to pass into RobotCard component to render on robots on this project:
 		const mappedProjectIds = project.Robots.map((robotProject) => robotProject.id);
@@ -63,7 +63,9 @@ export class SingleProject extends React.Component {
 				</div>
 				<h2>Robots assigned to this project</h2>
 				{/* check if project has any robots */}
-				{filteredRobots.length ? (
+				{loading ? (
+					<div className="LoadingMessage">Loading...</div>
+				) : filteredRobots.length ? (
 					filteredRobots.map((robot) => (
 						<RobotCard
 							key={robot.id}
@@ -85,7 +87,8 @@ export class SingleProject extends React.Component {
 const mapState = (state) => {
 	return {
 		project: state.projects.project,
-		robots: state.robots.allRobots
+		robots: state.robots.allRobots,
+		loading: state.robots.loading
 	};
 };
 

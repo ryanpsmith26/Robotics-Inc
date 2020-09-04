@@ -28,7 +28,7 @@ export class SingleRobot extends React.Component {
 	}
 
 	render() {
-		const { robot, projects } = this.props;
+		const { robot, projects, loading } = this.props;
 
 		// creating filtered projects array to pass into ProjectCard component to render on projects on this robot:
 		const mappedRobotIds = robot.Projects.map((robotProject) => robotProject.id);
@@ -56,8 +56,10 @@ export class SingleRobot extends React.Component {
 					</div>
 				</div>
 				<h2>Projects assigned to {robot.name}</h2>
-				{/* check if projects is empty on state for single robot */}
-				{filteredProjects.length ? (
+				{/* first check if loading is complete, when complete, check if projects for this robot is empty on state, finally if neither, render it's assigned projects  */}
+				{loading ? (
+					<div className="LoadingMessage">Loading...</div>
+				) : filteredProjects.length ? (
 					filteredProjects.map((project) => (
 						<ProjectCard
 							key={project.id}
@@ -79,7 +81,8 @@ export class SingleRobot extends React.Component {
 const mapState = (state) => {
 	return {
 		robot: state.robots.robot,
-		projects: state.projects.allProjects
+		projects: state.projects.allProjects,
+		loading: state.projects.loading
 	};
 };
 
