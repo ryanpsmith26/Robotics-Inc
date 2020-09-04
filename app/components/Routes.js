@@ -17,18 +17,22 @@ const Routes = () => {
 	return (
 		<Router>
 			<div>
-				<nav className="NavList">
-					<NavLink to="/" activeClassName="NavActive" exact={true}>
-						Home
-					</NavLink>
-					<NavLink to="/robots" activeClassName="NavActive">
-						Robots
-					</NavLink>
-					<NavLink to="/projects" activeClassName="NavActive">
-						Projects
-					</NavLink>
+				<nav>
+					<div className="Container">
+						<div className="NavList">
+							<NavLink to="/" activeClassName="NavActive" exact={true}>
+								Home
+							</NavLink>
+							<NavLink to="/robots" activeClassName="NavActive">
+								Robots
+							</NavLink>
+							<NavLink to="/projects" activeClassName="NavActive">
+								Projects
+							</NavLink>
+						</div>
+					</div>
 				</nav>
-				<main>
+				<main className="Container">
 					<Route exact path="/" component={Home} />
 
 					<Route path="/robots/forms/add" component={NewRobotForm} />
