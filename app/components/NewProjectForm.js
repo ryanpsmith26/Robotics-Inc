@@ -47,7 +47,9 @@ class NewProjectForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<br />
-					<button type="submit">Add Project</button>
+					<button className="AddNewBtn" type="submit">
+						Add Project
+					</button>
 				</form>
 			</div>
 		);

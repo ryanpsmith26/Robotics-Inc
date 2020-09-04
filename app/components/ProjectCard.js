@@ -6,14 +6,23 @@ const ProjectCard = (props) => {
 
 	return (
 		<div className="Card">
-			<div className="CardFeaturedDiv">
+			<div className="CardFeaturedDiv CardFeaturedProjectDiv">
 				<h2>{project.title}</h2>
 			</div>
 			<div className="CardContent">
 				<Link to={`/projects/single_project/${project.id}`}>
-					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
-					<p>Deadline: {project.deadline}</p>
-					<p>Priority: {project.priority}</p>
+					<p>
+						<strong>Status: </strong>
+						{project.completed ? 'Complete' : 'Open'}
+					</p>
+					<p>
+						<strong>Deadline: </strong>
+						{project.deadline && project.deadline.slice(0, 10)}
+					</p>
+					<p>
+						<strong>Priority: </strong>
+						{project.priority}
+					</p>
 				</Link>
 			</div>
 			{displayUnassignBtn ? (

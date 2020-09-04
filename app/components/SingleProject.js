@@ -36,18 +36,30 @@ export class SingleProject extends React.Component {
 
 		return (
 			<React.Fragment>
-				<div>
-					<h2>{project.title}</h2>
-					<p>Status: {project.completed ? 'Complete' : 'Open'}</p>
-					<p>Deadline: {project.deadline}</p>
-					<p>Priority: {project.priority}</p>
-					<div className="EditLinkDiv">
-						<Link to={`/projects/single_project/${project.id}/forms/edit`} className="EditLink">
-							Edit
-						</Link>
+				<div className="FeaturedProjectDiv">
+					<div className="FeaturedProjectContent">
+						<h2>{project.title}</h2>
+						<p>
+							<strong>Status: </strong>
+							{project.completed ? 'Complete' : 'Open'}
+						</p>
+						<p>
+							<strong>Deadline: </strong>
+							{project.deadline && project.deadline.slice(0, 10)}
+						</p>
+						<p>
+							<strong>Priority: </strong>
+							{project.priority}
+						</p>
+						<div className="EditLinkDiv">
+							<Link to={`/projects/single_project/${project.id}/forms/edit`} className="EditLink">
+								Edit
+							</Link>
+						</div>
 					</div>
-					<h3>Description: </h3>
-					<p>{project.description}</p>
+					<div className="FeaturedProjectDesc">
+						<p>{project.description}</p>
+					</div>
 				</div>
 				<h2>Robots assigned to this project</h2>
 				{/* check if project has any robots */}

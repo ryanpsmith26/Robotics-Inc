@@ -14,8 +14,14 @@ const RobotCard = (props) => {
 					<h2 className="CardTitle">{robot.name}</h2>
 					{/* fixes bug when submitting new robot */}
 					<p>{robot.Projects ? robot.Projects.length : 0} projects</p>
-					<p>Fuel Type: {robot.fuelType}</p>
-					<p>Fuel Level: {robot.fuelLevel}%</p>
+					<p>
+						<strong>Fuel Type: </strong>
+						{robot.fuelType}
+					</p>
+					<p>
+						<strong>Fuel Level: </strong>
+						{robot.fuelLevel}%
+					</p>
 				</Link>
 			</div>
 			{displayUnassignBtn ? (

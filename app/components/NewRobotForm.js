@@ -65,7 +65,9 @@ class NewRobotForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<br /> */}
-					<button type="submit">Add Robot</button>
+					<button className="AddNewBtn" type="submit">
+						Add Robot
+					</button>
 				</form>
 			</div>
 		);

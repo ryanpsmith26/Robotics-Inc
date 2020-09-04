@@ -40,8 +40,14 @@ export class SingleRobot extends React.Component {
 					<img className="FeaturedRobotImage" src={robot.imageUrl} />
 					<div className="FeaturedRobotContent">
 						<h1>{robot.name}</h1>
-						<p>Fuel Type: {robot.fuelType}</p>
-						<p>Fuel Level: {robot.fuelLevel}%</p>
+						<p>
+							<strong>Fuel Type: </strong>
+							{robot.fuelType}
+						</p>
+						<p>
+							<strong>Fuel Level: </strong>
+							{robot.fuelLevel}%
+						</p>
 						<div className="EditLinkDiv">
 							<Link to={`/robots/single_robot/${robot.id}/forms/edit`} className="EditLink">
 								Edit
