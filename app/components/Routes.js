@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 import Home from './Home';
+import NotFoundPage from './NotFoundPage';
 
 import AllRobots from './AllRobots';
 import NewRobotForm from './NewRobotForm';
@@ -46,6 +47,9 @@ const Routes = () => {
 						<Route path="/robots" component={AllRobots} />
 						<Route path="/projects/single_project/:id" component={SingleProject} />
 						<Route path="/projects" component={AllProjects} />
+						{/* redirect is not all-inclusive as configured: */}
+						<Route path="*" component={NotFoundPage} />
+						<Redirect to="/404" />
 					</Switch>
 				</main>
 			</div>

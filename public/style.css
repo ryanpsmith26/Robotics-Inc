@@ -27,6 +27,14 @@ a {
 	margin-top: 3em;
 }
 
+.NotFoundDiv > * {
+	text-align: center;
+}
+
+.NotFoundImg {
+	width: 100%;
+}
+
 /* NAVIGATION ========================================= */
 
 nav {
