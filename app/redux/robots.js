@@ -32,6 +32,7 @@ const deletedRobot = (robot) => ({
 	robot
 });
 
+// eslint-disable-next-line no-shadow
 const updatedRobot = (updatedRobot) => ({
 	type: UPDATE_ROBOT,
 	updatedRobot
@@ -93,7 +94,7 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 
 export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	try {
-		dispatch(loading());
+		// dispatch(loading());
 		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
 			id,
 			name,
@@ -173,8 +174,8 @@ export default function robotsReducer(state = initialState, action) {
 		case UPDATE_ROBOT:
 			return {
 				...state,
-				robot: action.updatedRobot,
-				loading: false
+				robot: action.updatedRobot
+				// loading: false
 			};
 		case UNASSIGN_ROBOT:
 			return {
