@@ -219,6 +219,8 @@ main {
 
 .CardImg {
 	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 .CardContent {
@@ -383,8 +385,18 @@ form button:focus {
 		width: 80%;
 		max-width: 800px;
 	}
+}
 
-	/* .Cards {
+/* CARDS FLEXBOX IN "ALL" VIEWS */
+@media (min-width: 1000px) {
+	.AllViewCards {
 		flex-direction: row;
-	} */
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.AllViewCards > .Card {
+		width: 48%;
+		margin: 2em 0;
+	}
 }

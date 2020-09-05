@@ -27,7 +27,7 @@ export class AllRobots extends React.Component {
 					<h1>All Robots</h1>
 					<Link to="/robots/forms/add">Add Robot</Link>
 				</div>
-				<div className="Cards">
+				<div className="Cards AllViewCards">
 					{/*  first check if loading is complete, when complete, check if robots is empty on state, finally if neither, render RobotCards, etc. */}
 					{loading ? (
 						<div className="LoadingMessage">Loading...</div>
