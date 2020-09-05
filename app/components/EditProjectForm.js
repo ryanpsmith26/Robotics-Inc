@@ -17,6 +17,7 @@ class EditProjectForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	// pre-populate fields
 	async componentDidMount() {
 		await this.props.fetchProject(this.id);
 		this.setState({

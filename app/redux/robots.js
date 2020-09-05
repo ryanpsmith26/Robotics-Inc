@@ -62,7 +62,7 @@ export const fetchRobots = () => async (dispatch) => {
 
 export const fetchRobot = (robotId) => async (dispatch) => {
 	try {
-		dispatch(loading());
+		// dispatch(loading());
 		const { data: robot } = await axios.get(`/api/robots/${robotId}`);
 		const action = gotRobot(robot);
 		dispatch(action);

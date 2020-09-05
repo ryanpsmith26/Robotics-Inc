@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { updateRobotInDb } from '../redux/robots';
+import { fetchRobot, updateRobotInDb } from '../redux/robots';
 
 class EditRobotForm extends Component {
 	constructor(props) {
@@ -16,6 +16,15 @@ class EditRobotForm extends Component {
 		this.id = this.props.match.params.id;
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	// pre-populate fields
+	async componentDidMount() {
+		await this.props.fetchRobot(this.id);
+		this.setState({
+			name: this.props.robot.name,
+			fuelType: this.props.robot.fuelType
+		});
 	}
 
 	handleChange(e) {
@@ -72,6 +81,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
+	fetchRobot: (id) => dispatch(fetchRobot(id)),
 	updateRobot: (id, name, fuelType) => dispatch(updateRobotInDb(id, name, fuelType))
 });
 
