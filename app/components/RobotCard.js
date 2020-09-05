@@ -12,8 +12,12 @@ const RobotCard = (props) => {
 			<div className="CardContent">
 				<Link to={`/robots/single_robot/${robot.id}`}>
 					<h2 className="CardTitle">{robot.name}</h2>
-					{/* fixes bug when submitting new robot */}
-					<p>{robot.Projects ? robot.Projects.length : 0} projects</p>
+					<p>
+						{/* display number of projects */}
+						{robot.Projects ? robot.Projects.length : 0}
+						{/* display "project" or "projects" */}
+						{robot.Projects && robot.Projects.length === 1 ? ' project' : ' projects'}
+					</p>
 					<p>
 						<strong>Fuel Type: </strong>
 						{robot.fuelType}
