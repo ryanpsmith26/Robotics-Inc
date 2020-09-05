@@ -49,6 +49,7 @@ router.put('/:id', async (req, res, next) => {
 				}
 			}
 		);
+		// manually retrieving updated robot rather than returning from update query, in order to serve back asssociations on object
 		const updatedRobot = await Robot.findByPk(req.body.id, {
 			include: [ { model: Project } ]
 		});

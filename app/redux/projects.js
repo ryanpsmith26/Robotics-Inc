@@ -97,12 +97,13 @@ export const deleteProjectFromDb = (project) => async (dispatch) => {
 	}
 };
 
-export const updateProjectInDb = (id, title) => async (dispatch) => {
+export const updateProjectInDb = (id, updatedProjectInfo) => async (dispatch) => {
 	try {
-		// dispatch(loading());
+		const { title, description } = updatedProjectInfo;
 		const { data: updatedRobotFromDb } = await axios.put(`/api/projects/${id}`, {
 			id,
-			title
+			title,
+			description
 		});
 		const action = updatedProject(updatedRobotFromDb);
 		dispatch(action);
@@ -190,7 +191,6 @@ export default function projectsReducer(state = initialState, action) {
 			return {
 				...state,
 				project: action.updatedProject
-				// loading: false
 			};
 		case UNASSIGN_PROJECT:
 			return {

@@ -8,7 +8,8 @@ class EditProjectForm extends Component {
 		super(props);
 
 		this.state = {
-			title: ''
+			title: '',
+			description: ''
 		};
 
 		this.id = this.props.match.params.id;
@@ -26,10 +27,10 @@ class EditProjectForm extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const title = e.target.title.value;
-		this.props.updateProject(this.id, title);
+		this.props.updateProject(this.id, this.state);
 		this.setState({
-			title: ''
+			title: '',
+			description: ''
 		});
 	}
 
@@ -41,7 +42,14 @@ class EditProjectForm extends Component {
 				<Link to={`/projects/single_project/${this.id}`}>&times;</Link>
 				<form onSubmit={this.handleSubmit}>
 					<label>Project Name: </label>
-					<input type="text" name="title" onChange={this.handleChange} value={this.state.title} required />
+					<input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
+					<label>Description: </label>
+					<textarea
+						type="text"
+						name="description"
+						onChange={this.handleChange}
+						value={this.state.description}
+					/>
 					<button type="submit">Save Changes</button>
 				</form>
 			</div>
@@ -54,7 +62,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	updateProject: (id, title) => dispatch(updateProjectInDb(id, title))
+	updateProject: (id, updatedProjectInfo) => dispatch(updateProjectInDb(id, updatedProjectInfo))
 });
 
 export default connect(mapState, mapDispatch)(EditProjectForm);

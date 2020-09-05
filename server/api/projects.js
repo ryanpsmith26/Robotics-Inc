@@ -40,15 +40,45 @@ router.post('/', async (req, res, next) => {
 // PUT /api/projects/:id
 router.put('/:id', async (req, res, next) => {
 	try {
-		await Project.update(
-			// refactor to utilize params instead of sending back the whole project to lighten the req load and simplify:
-			{ title: req.body.title },
-			{
-				where: {
-					id: req.body.id
+		const { title, description } = req.body;
+		if (title && description) {
+			await Project.update(
+				{
+					title,
+					description
+				},
+				{
+					where: {
+						id: req.body.id
+					}
 				}
-			}
-		);
+			);
+		}
+		if (title) {
+			await Project.update(
+				{
+					title
+				},
+				{
+					where: {
+						id: req.body.id
+					}
+				}
+			);
+		}
+		if (description) {
+			await Project.update(
+				{
+					description
+				},
+				{
+					where: {
+						id: req.body.id
+					}
+				}
+			);
+		}
+		// manually retrieving updated project rather than returning from update query, in order to serve back asssociations on object
 		const updatedProject = await Project.findByPk(req.body.id, {
 			include: [ { model: Robot } ]
 		});

@@ -322,6 +322,13 @@ form input {
 	font-size: 1rem;
 }
 
+form textarea {
+	display: block;
+	margin: 0 auto 1.75rem;
+	width: 300px;
+	height: 150px;
+}
+
 form select {
 	display: block;
 	margin: 0 auto;
