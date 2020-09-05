@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { updateProjectInDb } from '../redux/projects';
+import { fetchProject, updateProjectInDb } from '../redux/projects';
 
 class EditProjectForm extends Component {
 	constructor(props) {
@@ -15,6 +15,14 @@ class EditProjectForm extends Component {
 		this.id = this.props.match.params.id;
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	async componentDidMount() {
+		await this.props.fetchProject(this.id);
+		this.setState({
+			title: this.props.project.title,
+			description: this.props.project.description
+		});
 	}
 
 	handleChange(e) {
@@ -35,8 +43,6 @@ class EditProjectForm extends Component {
 	}
 
 	render() {
-		console.log(this.state);
-
 		return (
 			<div className="FormDiv">
 				<Link to={`/projects/single_project/${this.id}`}>&times;</Link>
@@ -62,6 +68,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
+	fetchProject: (id) => dispatch(fetchProject(id)),
 	updateProject: (id, updatedProjectInfo) => dispatch(updateProjectInDb(id, updatedProjectInfo))
 });
 
