@@ -143,7 +143,6 @@ main {
 }
 
 .FeaturedProjectContent {
-	/* margin-right: 3em; */
 	align-self: flex-start;
 }
 
@@ -210,6 +209,7 @@ main {
 
 .CardFeaturedProjectDiv {
 	background-color: #fafafa;
+	min-width: 40%;
 }
 
 .CardFeaturedDiv h2 {
@@ -321,12 +321,13 @@ form input {
 	margin: 0 auto 1.75rem;
 	border-radius: 5px;
 	font-size: 1.125rem;
+	width: 200px;
 }
 
 form textarea {
 	margin: 0 auto 1.75rem;
-	width: 300px;
-	height: 150px;
+	width: 350px;
+	height: 200px;
 }
 
 form select {

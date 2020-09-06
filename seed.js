@@ -7,11 +7,13 @@ const starterRobots = [
 		imageUrl: 'https://roboticsandautomationnews.com/wp-content/uploads/2020/06/boston-dynamics-spot-2.jpg'
 	},
 	{
-		name: 'Jeff'
+		name: 'WALL-E',
+		imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/713nvz4KXFL._AC_SY450_.jpg'
 	},
 	{
 		name: 'Henry',
-		fuelType: 'diesel'
+		fuelType: 'diesel',
+		imageUrl: 'https://www.sciplus.com/productImages/Regular/63830.jpg'
 	}
 ];
 
@@ -31,7 +33,7 @@ const starterProjects = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 	},
 	{
-		title: 'Automate Away Your New Years Resolutions',
+		title: 'Automate Your New Years Resolutions',
 		deadline: new Date(2021, 0, 1),
 		priority: 3,
 		description:
@@ -78,7 +80,14 @@ const seed = async () => {
 		const robotsFromDb = await Robot.findAll();
 		await robotsFromDb[0].addProject(1);
 		await robotsFromDb[0].addProject(2);
+		await robotsFromDb[0].addProject(3);
+		await robotsFromDb[1].addProject(2);
+		await robotsFromDb[2].addProject(1);
 		await robotsFromDb[2].addProject(2);
+		await robotsFromDb[2].addProject(3);
+		await robotsFromDb[10].addProject(1);
+		await robotsFromDb[10].addProject(2);
+		await robotsFromDb[10].addProject(3);
 	} catch (err) {
 		console.log(red(err));
 	}
