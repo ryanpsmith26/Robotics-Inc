@@ -8,8 +8,6 @@ class NewRobotForm extends Component {
 		super(props);
 		this.state = {
 			name: ''
-			// fuelType: '',
-			// imageUrl: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -28,18 +26,14 @@ class NewRobotForm extends Component {
 		e.preventDefault();
 		this.props.addRobot({
 			name: e.target.name.value
-			// fuelType: e.target.fuelType.value,
-			// imageUrl: e.target.imageUrl.value
 		});
 		this.setState({
 			name: ''
-			// fuelType: '',
-			// imageUrl: ''
 		});
 	}
 
 	render() {
-		const { name, fuelType, fuelLevel, imageUrl } = this.state;
+		const { name } = this.state;
 		return (
 			<div className="FormDiv">
 				<Link to="/robots">&times;</Link>
@@ -53,25 +47,6 @@ class NewRobotForm extends Component {
 						onChange={this.handleChange}
 						required
 					/>
-					{/* <br /> */}
-					{/* <label>Fuel Type: </label>
-				<input
-					type="text"
-					placeholder="electric, gas, diesel"
-					name="fuelType"
-					value={fuelType}
-					onChange={this.handleChange}
-				/>
-				<br />
-				<label>Avatar Image: </label>
-				<input
-					type="text"
-					placeholder="Enter URL to image"
-					name="imageUrl"
-					value={imageUrl}
-					onChange={this.handleChange}
-				/>
-				<br /> */}
 					<button className="AddNewBtn" type="submit">
 						Add Robot
 					</button>
@@ -81,12 +56,8 @@ class NewRobotForm extends Component {
 	}
 }
 
-const mapState = (state) => ({
-	// newRobot: state.robots.newRobot
-});
-
 const mapDispatch = (dispatch) => ({
 	addRobot: (newRobot) => dispatch(addRobotToDb(newRobot))
 });
 
-export default connect(mapState, mapDispatch)(NewRobotForm);
+export default connect(null, mapDispatch)(NewRobotForm);

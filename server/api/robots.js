@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Robot, Project } = require('../db');
-const { default: Axios } = require('axios');
 
 // GET /api/robots
 router.get('/', async (req, res, next) => {

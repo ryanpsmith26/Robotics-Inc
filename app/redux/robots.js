@@ -62,7 +62,6 @@ export const fetchRobots = () => async (dispatch) => {
 
 export const fetchRobot = (robotId) => async (dispatch) => {
 	try {
-		// dispatch(loading());
 		const { data: robot } = await axios.get(`/api/robots/${robotId}`);
 		const action = gotRobot(robot);
 		dispatch(action);
@@ -94,7 +93,6 @@ export const deleteRobotFromDb = (robot) => async (dispatch) => {
 
 export const updateRobotInDb = (id, name, fuelType) => async (dispatch) => {
 	try {
-		// dispatch(loading());
 		const { data: updatedRobotFromDb } = await axios.put(`/api/robots/${id}`, {
 			id,
 			name,
@@ -175,7 +173,6 @@ export default function robotsReducer(state = initialState, action) {
 			return {
 				...state,
 				robot: action.updatedRobot
-				// loading: false
 			};
 		case UNASSIGN_ROBOT:
 			return {

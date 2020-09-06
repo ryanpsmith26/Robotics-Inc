@@ -67,7 +67,6 @@ export const fetchProjects = () => async (dispatch) => {
 
 export const fetchProject = (projectId) => async (dispatch) => {
 	try {
-		// dispatch(loading());
 		const { data: project } = await axios.get(`/api/projects/${projectId}`);
 		const action = gotProject(project);
 		dispatch(action);
