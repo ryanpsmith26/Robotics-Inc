@@ -2,14 +2,14 @@
 	"name": "final_project",
 	"version": "0.0.1",
 	"description": "A review time project",
-	"main": "main.js",
+	"main": "index.js",
 	"scripts": {
 		"start-dev": "npm run build-watch & npm run start-server",
 		"start-server": "nodemon main.js -e html,js,css --ignore public",
 		"build-watch": "webpack -w",
 		"deploy": "scripts/deploy",
 		"test": "NODE_ENV='test' mocha  ./tests --recursive --watch --require babel-polyfill --require babel-register",
-		"start": "node main.js",
+		"start": "node main.js -e html,js,css --ignore public",
 		"seed": "node seed.js"
 	},
 	"keywords": [ "react", "redux", "skeleton" ],
