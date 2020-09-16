@@ -9,7 +9,7 @@
 		"build-watch": "webpack -w",
 		"deploy": "scripts/deploy",
 		"test": "NODE_ENV='test' mocha  ./tests --recursive --watch --require babel-polyfill --require babel-register",
-		"start": "echo 'Running server for production - developers, use npm run start-dev for development' && node main",
+		"start": "node main.js",
 		"seed": "node seed.js"
 	},
 	"keywords": [ "react", "redux", "skeleton" ],
