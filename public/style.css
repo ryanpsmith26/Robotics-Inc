@@ -355,6 +355,18 @@ form button:focus {
 	background-color: #00baff;
 }
 
+/* CARD SIZES FOR MOBILE */
+@media (max-width: 400px) {
+	.Cards {
+		/* could probably be set outside MQ */
+		justify-content: center;
+	}
+
+	.Card {
+		max-width: 335px;
+	}
+}
+
 /* SINGLE PROJECT FLEX FOR SMALL SCREENS */
 @media (max-width: 580px) {
 	.FeaturedProjectDiv {
