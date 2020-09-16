@@ -2,7 +2,7 @@
 	"name": "final_project",
 	"version": "0.0.1",
 	"description": "A review time project",
-	"main": "index.js",
+	"main": "main.js",
 	"scripts": {
 		"start-dev": "npm run build-watch & npm run start-server",
 		"start-server": "nodemon main.js -e html,js,css --ignore public",
