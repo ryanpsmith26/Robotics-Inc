@@ -1,4 +1,4 @@
-# Robot Inc.
+# Robotics Inc.
 
 **Deployed Link**\
 https://stackbot-jpfp.herokuapp.com/
@@ -6,9 +6,9 @@ https://stackbot-jpfp.herokuapp.com/
 **Link to Youtube Demo:**\
 https://youtu.be/fyRYEwMzJao
 
-Robot Inc. is a mock business staffed entirely by robots. Each robot may be assigned to several projects at a time. This project is RESTful web platform that allows you to manage your robots and their projects.
+Robotics Inc. is a mock business staffed entirely by robots. Each robot may be assigned to several projects at a time. This project is a RESTful web platform that allows you to manage your robots and their projects.
 
-#### Tech
+#### Technologies
 - React
 - Redux
 - Node
