@@ -1,7 +1,7 @@
 # Robotics Inc.
 
 **Deployed Link**\
-https://stackbot-jpfp.herokuapp.com/
+https://robotics-inc.herokuapp.com/
 
 **Link to Youtube Demo:**\
 https://youtu.be/fyRYEwMzJao
