@@ -1,7 +1,7 @@
 {
-	"name": "final_project",
+	"name": "Robotics-Inc",
 	"version": "0.0.1",
-	"description": "A review time project",
+	"description": "Mock Company Website",
 	"main": "index.js",
 	"scripts": {
 		"start-dev": "npm run build-watch & npm run start-server",
@@ -12,7 +12,11 @@
 		"start": "node main.js -e html,js,css --ignore public",
 		"seed": "node seed.js"
 	},
-	"keywords": [ "react", "redux", "skeleton" ],
+	"keywords": [
+		"react",
+		"redux",
+		"skeleton"
+	],
 	"dependencies": {
 		"axios": "^0.18.1",
 		"body-parser": "^1.18.2",
