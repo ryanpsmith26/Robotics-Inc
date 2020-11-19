@@ -4,7 +4,10 @@ const Home = () => {
 	return (
 		<React.Fragment>
 			<h1 className="HomeHeader">Welcome to Robotics Inc.!</h1>
-			<img src="https://compote.slate.com/images/5578848e-06d9-4d4d-a771-648c3e9dc488.jpeg?width=780&height=520&rect=1560x1040&offset=0x0" />
+			<img
+				src="https://compote.slate.com/images/5578848e-06d9-4d4d-a771-648c3e9dc488.jpeg?width=780&height=520&rect=1560x1040&offset=0x0"
+				className="HomeImg"
+			/>
 		</React.Fragment>
 	);
 };

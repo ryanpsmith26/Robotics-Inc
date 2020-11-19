@@ -24,30 +24,31 @@ const ProjectCard = (props) => {
 						{project.priority}
 					</p>
 				</Link>
-			</div>
-			{/* only display unassign button in the single robot view */}
-			{displayUnassignBtn ? (
+
+				{/* <div className="CardBtnDiv"> */}
+				{/* only display unassign button in the single robot view */}
+				{displayUnassignBtn && (
+					<button
+						type="button"
+						className="CardUnassignBtn"
+						onClick={() => handleUnassignRobot(robotId, project.id)}
+					>
+						Unassign
+					</button>
+				)}
 				<button
 					type="button"
-					className="CardUnassignBtn"
-					onClick={() => handleUnassignRobot(robotId, project.id)}
+					className="CardDeleteBtn"
+					onClick={() =>
+						// eslint-disable-next-line no-alert
+						window.confirm(
+							'This action will permanently delete the project in the database. Are you sure you want to continue?'
+						) && handleDelete(project)}
 				>
-					Unassign
+					&times;
 				</button>
-			) : (
-				''
-			)}
-			<button
-				type="button"
-				className="CardDeleteBtn"
-				onClick={() =>
-					// eslint-disable-next-line no-alert
-					window.confirm(
-						'This action will permanently delete the project in the database. Are you sure you want to continue?'
-					) && handleDelete(project)}
-			>
-				&times;
-			</button>
+			</div>
+			{/* </div> */}
 		</div>
 	);
 };

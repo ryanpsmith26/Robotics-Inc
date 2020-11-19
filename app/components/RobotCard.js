@@ -27,29 +27,30 @@ const RobotCard = (props) => {
 						{robot.fuelLevel}%
 					</p>
 				</Link>
-			</div>
-			{displayUnassignBtn ? (
+
+				{displayUnassignBtn ? (
+					<button
+						type="button"
+						className="CardUnassignBtn"
+						onClick={() => handleUnassignProject(projectId, robot.id)}
+					>
+						Unassign
+					</button>
+				) : (
+					''
+				)}
 				<button
 					type="button"
-					className="CardUnassignBtn"
-					onClick={() => handleUnassignProject(projectId, robot.id)}
+					className="CardDeleteBtn"
+					onClick={() =>
+						// eslint-disable-next-line no-alert
+						window.confirm(
+							`This action will permanently delete ${robot.name} in the database. Are you sure you want to continue?`
+						) && handleDelete(robot)}
 				>
-					Unassign
+					&times;
 				</button>
-			) : (
-				''
-			)}
-			<button
-				type="button"
-				className="CardDeleteBtn"
-				onClick={() =>
-					// eslint-disable-next-line no-alert
-					window.confirm(
-						`This action will permanently delete ${robot.name} in the database. Are you sure you want to continue?`
-					) && handleDelete(robot)}
-			>
-				&times;
-			</button>
+			</div>
 		</div>
 	);
 };

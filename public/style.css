@@ -1,415 +1,425 @@
 * {
-	box-sizing: border-box;
-	font-family: monospace;
+  box-sizing: border-box;
+  font-family: monospace;
 }
 
 body {
-	background: #fafafa;
-	padding: 0;
-	margin: 0;
+  background: #fafafa;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .Container {
-	width: 90%;
-	margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .HomeHeader {
-	margin: 1em 0 2em;
+  margin: 1em 0 2em;
+}
+
+.HomeImg {
+  width: 100vw;
 }
 
 .LoadingMessage {
-	font-size: 3rem;
-	margin-top: 3em;
+  font-size: 3rem;
+  margin-top: 3em;
 }
 
-.NotFoundDiv > * {
-	text-align: center;
+.NotFoundDiv>* {
+  text-align: center;
 }
 
 .NotFoundImg {
-	width: 100%;
+  width: 100%;
 }
 
 /* NAVIGATION ========================================= */
 
 nav {
-	align-items: center;
-	background-color: #333333;
-	color: #c0c0c0;
-	display: flex;
-	height: 80px;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
-		0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
-	opacity: .95;
-	margin-bottom: 1em;
+  align-items: center;
+  background-color: #333333;
+  color: #c0c0c0;
+  display: flex;
+  height: 80px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
+    0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
+  opacity: .95;
+  margin-bottom: 1em;
 }
 
 .NavList {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	font-size: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
 }
 
 .NavList a {
-	color: #fafafa;
+  color: #fafafa;
 }
 
 a:hover,
 a:focus {
-	color: #c2c2c2;
+  color: #c2c2c2;
 }
 
 .NavActive {
-	padding-bottom: 4px;
-	border-bottom: 1px solid #fafafa;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #fafafa;
 }
 
 /* MAIN =============================================== */
 
 main {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .MainHeader {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .MainHeader a {
-	color: #333333;
-	background-color: #5ed4ff;
-	padding: 1em;
-	border-radius: 5px;
-	font-weight: 900;
+  color: #333333;
+  background-color: #5ed4ff;
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: 900;
 }
 
 .MainHeader a:hover,
 .MainHeader a:focus {
-	background-color: #00baff;
+  background-color: #00baff;
 }
 
 /* FEATURED ROBOT ===================================== */
 
 .FeaturedRobotDiv {
-	display: flex;
-	justify-content: flex-start;
-	width: 80%;
-	margin: 2em 0 2em;
-	padding-bottom: 3em;
-	border-bottom: 1px solid #c2c2c2;
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  margin: 2em 0 2em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #c2c2c2;
 }
 
 .FeaturedRobotImage {
-	width: 50%;
-	object-fit: cover;
-	max-height: 200px;
+  width: 50%;
+  object-fit: cover;
+  max-height: 200px;
 }
 
 .FeaturedRobotContent {
-	align-self: center;
-	margin-left: 2em;
-	font-size: 1.125rem;
+  align-self: center;
+  margin-left: 2em;
+  font-size: 1.125rem;
 }
+
 /* FEATURED PROJECT =================================== */
 
 .FeaturedProjectDiv {
-	display: flex;
-	font-size: 1.25rem;
-	margin: 2em 0 2em;
-	padding-bottom: 3em;
-	border-bottom: 1px solid #c2c2c2;
-	width: 100%;
+  display: flex;
+  font-size: 1.25rem;
+  margin: 2em 0 2em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #c2c2c2;
+  width: 100%;
 }
 
 .FeaturedProjectDesc {
-	order: -1;
-	width: 60%;
-	margin-right: 3em;
-	padding: 1em 2em;
-	background: #f0f0f0;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
-		0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
+  order: -1;
+  width: 60%;
+  margin-right: 3em;
+  padding: 1em 2em;
+  background: #f0f0f0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
+    0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
 }
 
 .FeaturedProjectContent {
-	align-self: flex-start;
+  align-self: flex-start;
 }
 
 .ToggleProjectStatusBtn {
-	border: none;
-	background-color: #f3ff57;
-	padding: 1em 2.25em;
-	color: #333333;
-	border-radius: 5px;
-	font-weight: 700;
-	font-size: 1.125rem;
+  border: none;
+  background-color: #f3ff57;
+  padding: 1em 2.25em;
+  color: #333333;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 .ToggleProjectStatusBtn:hover,
 .ToggleProjectStatusBtn:focus {
-	color: #333333;
-	background-color: #dbe64c;
+  color: #333333;
+  background-color: #dbe64c;
 }
+
 /* GREEN EDIT BUTTON ========== */
 
 .EditLinkDiv {
-	margin: 2.5em 0;
+  margin: 2.5em 0;
 }
 
 .EditLink {
-	background-color: #49fc8b;
-	padding: 0.75em 2.25em;
-	color: #333333;
-	border-radius: 5px;
-	font-weight: 700;
-	font-size: 1.125rem;
+  background-color: #49fc8b;
+  padding: 0.75em 2.25em;
+  color: #333333;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 .EditLink:hover,
 .EditLink:focus {
-	color: #333333;
-	background-color: #3ede79;
+  color: #333333;
+  background-color: #3ede79;
 }
 
 /* CARDS ============================================== */
 
 .Cards {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .Card {
-	display: flex;
-	justify-content: space-between;
-	margin: 2em;
-	padding: 1.25em;
-	background-color: #c9c9c9;
-	width: 450px;
-	min-height: 150px;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
-		0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
+  display: flex;
+  /* justify-content: space-between; */
+  margin: 2em;
+  padding: 1.25em;
+  background-color: #c9c9c9;
+  width: 450px;
+  min-height: 150px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.025), 0 5px 2px rgba(0, 0, 0, 0.025), 0 15px 15px rgba(0, 0, 0, 0.035),
+    0 30px 30px rgba(0, 0, 0, 0.045), 0 45px 45px rgba(0, 0, 0, 0.055);
 }
 
 .CardFeaturedDiv {
-	min-width: 33%;
-	max-width: 33%;
-	height: 100%;
+  min-width: 33%;
+  max-width: 33%;
+  min-height: 100%;
 }
 
 .CardFeaturedProjectDiv {
-	background-color: #fafafa;
-	min-width: 40%;
+  background-color: #fafafa;
+  min-width: 40%;
 }
 
 .CardFeaturedDiv h2 {
-	background-color: #fafafa;
-	padding: 1em;
+  background-color: #fafafa;
+  padding: 1em;
 }
 
 .CardImg {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .CardContent {
-	margin-left: 2em;
-	font-size: 1.25rem;
+  margin-left: 2em;
+  font-size: 1.25rem;
+  align-self: flex-start;
 }
 
 .CardTitle {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .CardDeleteBtn {
-	width: 65px;
-	height: 30px;
-	border: none;
-	align-self: flex-end;
-	background-color: #ff4a4a;
-	color: #fafafa;
-	font-size: 2rem;
-	border-radius: 5px;
-	margin-left: 0.75em;
+  width: 40px;
+  height: 30px;
+  border: none;
+  background-color: #ff4a4a;
+  color: #fafafa;
+  font-size: 2rem;
+  border-radius: 5px;
 }
 
 .CardDeleteBtn:hover,
 .CardDeleteBtn:focus {
-	background-color: #fa2f2f;
+  background-color: #fa2f2f;
 }
 
 .CardUnassignBtn {
-	height: 30px;
-	padding: 0 1em;
-	border: none;
-	align-self: flex-end;
-	background-color: #5ed4ff;
-	color: #fafafa;
-	font-size: 1.125rem;
-	border-radius: 5px;
+  height: 30px;
+  padding: 0 1em;
+  border: none;
+  background-color: #5ed4ff;
+  color: #fafafa;
+  font-size: 1.125rem;
+  border-radius: 5px;
+  margin-right: 2em;
 }
 
 .CardUnassignBtn:hover,
 .CardUnassignBtn:focus {
-	background-color: #00baff;
+  background-color: #00baff;
 }
 
 .Card a {
-	color: #333333;
+  color: #333333;
 }
 
 .Card a:hover,
 .Card a:focus {
-	color: #757575;
+  color: #757575;
 }
 
 /* FORMS ============================================ */
 
 .FormDiv {
-	width: 100%;
-	margin: 2em 0 2em;
-	padding-bottom: 1em;
-	border-bottom: 1px solid #c2c2c2;
+  width: 100%;
+  margin: 2em 0 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #c2c2c2;
 }
 
 /* CLOSE BUTTON */
 .FormDiv a {
-	position: absolute;
-	font-size: 3rem;
-	color: #757575;
+  position: absolute;
+  font-size: 3rem;
+  color: #757575;
 }
 
 .FormDiv a:hover,
 .FormDiv a:focus {
-	color: #333333;
+  color: #333333;
 }
 
 .AddNewBtn {
-	color: #333333;
+  color: #333333;
 }
 
 form {
-	width: 100%;
-	padding: 2em 0 3em;
+  width: 100%;
+  padding: 2em 0 3em;
 }
 
-form > * {
-	display: block;
-	margin-bottom: 1.25rem;
+form>* {
+  display: block;
+  margin-bottom: 1.25rem;
 }
 
 form label {
-	font-size: 1.5rem;
-	text-align: center;
-	margin-bottom: 0.75em;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.75em;
 }
 
 form input {
-	border: 0.5px solid #757575;
-	padding: .75em;
-	margin: 0 auto 1.75rem;
-	border-radius: 5px;
-	font-size: 1.125rem;
-	width: 200px;
+  border: 0.5px solid #757575;
+  padding: .75em;
+  margin: 0 auto 1.75rem;
+  border-radius: 5px;
+  font-size: 1.125rem;
+  width: 200px;
 }
 
 form textarea {
-	margin: 0 auto 1.75rem;
-	width: 350px;
-	height: 200px;
+  margin: 0 auto 1.75rem;
+  width: 350px;
+  height: 200px;
 }
 
 form select {
-	margin: 0 auto;
-	padding: 0.25em 2em;
-	border: 0.5px solid #757575;
-	border-radius: 5px;
-	margin-bottom: 1em;
-	font-size: 1.25rem;
+  margin: 0 auto;
+  padding: 0.25em 2em;
+  border: 0.5px solid #757575;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  font-size: 1.25rem;
 }
 
 form button {
-	color: #fafafa;
-	background-color: #5ed4ff;
-	padding: 0.75em 1.5em;
-	margin: 0 auto;
-	border: none;
-	border-radius: 5px;
-	font-size: 1rem;
-	font-weight: 900;
+  color: #fafafa;
+  background-color: #5ed4ff;
+  padding: 0.75em 1.5em;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
 form button:hover,
 form button:focus {
-	background-color: #00baff;
+  background-color: #00baff;
 }
 
 /* CARD SIZES FOR MOBILE */
 @media (max-width: 400px) {
-	.Cards {
-		/* could probably be set outside MQ */
-		justify-content: center;
-	}
+  .NavList {
+    font-size: 1.5rem;
+  }
 
-	.Card {
-		max-width: 335px;
-	}
+  .Cards {
+    /* could probably be set outside MQ */
+    justify-content: center;
+  }
+
+  .Card {
+    max-width: 335px;
+  }
 }
 
 /* SINGLE PROJECT FLEX FOR SMALL SCREENS */
 @media (max-width: 580px) {
-	.FeaturedProjectDiv {
-		flex-direction: column;
-		align-items: center;
-	}
+  .FeaturedProjectDiv {
+    flex-direction: column;
+    align-items: center;
+  }
 
-	.FeaturedProjectDesc {
-		order: 1;
-		width: 90%;
-		margin: 0 auto 2em;
-	}
+  .FeaturedProjectDesc {
+    order: 1;
+    width: 90%;
+    margin: 0 auto 2em;
+  }
 
-	.EditAndToggleBtnsFlex {
-		display: flex;
-		justify-content: space-between;
-		max-width: 275px;
-	}
+  .EditAndToggleBtnsFlex {
+    display: flex;
+    justify-content: space-between;
+    max-width: 275px;
+  }
 
-	.ToggleProjectStatusBtn {
-		max-height: 35px;
-		align-self: center;
-	}
+  .ToggleProjectStatusBtn {
+    max-height: 35px;
+    align-self: center;
+  }
 }
 
 /* CONTAINER CONTROL FOR LARGE SCREENS */
 @media (min-width: 650px) {
-	.Container {
-		width: 80%;
-		max-width: 800px;
-	}
+  .Container {
+    width: 80%;
+    max-width: 800px;
+  }
 }
 
 /* CARDS FLEXBOX IN "ALL" VIEWS */
 @media (min-width: 1000px) {
-	.AllViewCards {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
-	}
+  .AllViewCards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-	.AllViewCards > .Card {
-		width: 48%;
-		margin: 2em 0;
-	}
+  .AllViewCards>.Card {
+    width: 48%;
+    margin: 2em 0;
+  }
 }
