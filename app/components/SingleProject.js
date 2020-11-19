@@ -62,7 +62,7 @@ export class SingleProject extends React.Component {
 								className="ToggleProjectStatusBtn"
 								onClick={() => toggleStatus(project.id)}
 							>
-								{project.completed ? 'Mark Active' : 'Mark Complete'}
+								{project.completed ? 'Active' : 'Complete'}
 							</button>
 						</div>
 					</div>
