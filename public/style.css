@@ -209,8 +209,8 @@ main {
 }
 
 .CardFeaturedDiv {
-  min-width: 33%;
-  max-width: 33%;
+  min-width: 43%;
+  max-width: 43%;
   min-height: 100%;
 }
 
@@ -241,8 +241,9 @@ main {
 }
 
 .CardDeleteBtn {
-  width: 40px;
-  height: 30px;
+  /* width: 40px;
+	height: 30px; */
+	padding: 0.25em 0.5em;
   border: none;
   background-color: #ff4a4a;
   color: #fafafa;
